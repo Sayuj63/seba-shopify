@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -6,13 +15,13 @@
       "type": "seba-footer",
       "settings": {
         "tagline": "UK's trusted source for genuine electronics accessories. Panasonic, TDK, Kingston & more.",
-        "phone": "",
-        "email": "",
-        "address": "United Kingdom",
+        "phone": "020 8567 8550",
+        "email": "sales@sebadigital.co.uk",
+        "address": "42B Broadway, West Ealing, London W13 0SU",
         "col2_heading": "Categories",
-        "menu_categories": "footer-categories",
-        "col3_heading": "Customer Care",
-        "menu_info": "footer",
+        "menu_categories": "categories",
+        "col3_heading": "Useful Information",
+        "menu_info": "useful-information",
         "opening_hours": "Mon–Fri: 9am – 5pm<br>Saturday: 10am – 3pm<br>Sunday: Closed",
         "company_reg": ""
       }
