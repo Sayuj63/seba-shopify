@@ -1,0 +1,105 @@
+{% comment %}
+  Seba Digital — Scrolling Ticker Announcement Bar
+{% endcomment %}
+
+{{ 'seba-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="seba-announcement-bar" role="marquee" aria-label="Site announcements">
+  <div class="seba-announcement-bar__inner">
+    {% comment %} Repeat items twice to create seamless loop {% endcomment %}
+    {% for iteration in (1..2) %}
+      {% if section.settings.message_1 != blank %}
+        <span class="seba-announcement-bar__item">{{ section.settings.message_1 }}</span>
+      {% endif %}
+      {% if section.settings.message_2 != blank %}
+        <span class="seba-announcement-bar__item">{{ section.settings.message_2 }}</span>
+      {% endif %}
+      {% if section.settings.message_3 != blank %}
+        <span class="seba-announcement-bar__item">{{ section.settings.message_3 }}</span>
+      {% endif %}
+      {% if section.settings.message_4 != blank %}
+        <span class="seba-announcement-bar__item">{{ section.settings.message_4 }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Seba Announcement Bar",
+  "tag": "section",
+  "class": "seba-section-announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message_1",
+      "label": "Message 1",
+      "default": "🚚 Free UK Delivery on orders over £30"
+    },
+    {
+      "type": "text",
+      "id": "message_2",
+      "label": "Message 2",
+      "default": "✅ Genuine Panasonic, TDK, Kingston & more"
+    },
+    {
+      "type": "text",
+      "id": "message_3",
+      "label": "Message 3",
+      "default": "🕐 Orders before 2pm ship same day"
+    },
+    {
+      "type": "text",
+      "id": "message_4",
+      "label": "Message 4",
+      "default": "💳 Secure checkout — SSL encrypted"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "blue",
+      "options": [
+        { "value": "blue",   "label": "Blue (default)" },
+        { "value": "dark",   "label": "Dark navy" },
+        { "value": "accent", "label": "Accent purple" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Scroll speed (seconds)",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Seba Announcement Bar",
+      "settings": {
+        "message_1": "🚚 Free UK Delivery on orders over £30",
+        "message_2": "✅ Genuine Panasonic, TDK, Kingston & more",
+        "message_3": "🕐 Orders before 2pm ship same day",
+        "message_4": "💳 Secure checkout — SSL encrypted"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .seba-announcement-bar--dark   { background: #0D1526 !important; }
+  .seba-announcement-bar--accent { background: #5B21B6 !important; }
+
+  .seba-announcement-bar .seba-announcement-bar__inner {
+    animation-duration: {{ section.settings.animation_speed }}s;
+  }
+
+  {% if section.settings.color_scheme == 'dark' %}
+    .seba-announcement-bar { background: #0D1526 !important; }
+  {% elsif section.settings.color_scheme == 'accent' %}
+    .seba-announcement-bar { background: #5B21B6 !important; }
+  {% endif %}
+</style>

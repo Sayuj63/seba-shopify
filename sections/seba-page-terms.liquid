@@ -1,0 +1,176 @@
+<style>
+  .st {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .st__inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .st__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .st__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .st__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .st__header {
+    grid-column: 1 / -1;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 8px;
+  }
+  .st__eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .st__header h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 8px; color: var(--seba-text, #111827);
+  }
+  .st__header p {
+    font-size: 14px; margin: 0;
+    color: var(--seba-muted, #6b7280);
+  }
+  .st__updated {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--seba-muted, #6b7280);
+  }
+
+  .st__toc {
+    position: sticky; top: 24px;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .st__toc-heading {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--seba-muted, #6b7280);
+    margin: 0 0 12px;
+  }
+  .st__toc ol {
+    padding-left: 20px;
+    margin: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .st__toc a {
+    font-size: 13px; text-decoration: none;
+    color: var(--seba-text-2, #374151);
+  }
+  .st__toc a:hover { color: var(--seba-accent, #2563eb); }
+
+  .st__body h2 {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 32px 0 10px; color: var(--seba-text, #111827);
+    scroll-margin-top: 24px;
+  }
+  .st__body h2:first-child { margin-top: 0; }
+  .st__body p {
+    font-size: 15px; line-height: 1.75; margin: 0 0 12px;
+    color: var(--seba-text-2, #374151);
+  }
+  .st__body ul, .st__body ol { padding-left: 22px; margin: 0 0 14px; }
+  .st__body li { font-size: 15px; line-height: 1.75; color: var(--seba-text-2, #374151); margin-bottom: 6px; }
+  .st__body strong { color: var(--seba-text, #111827); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .st__inner { grid-template-columns: 1fr; }
+    .st__toc { position: static; }
+    .st__header { padding: 24px; }
+    .st__header h1 { font-size: 24px; }
+  }
+</style>
+
+<section class="st">
+  <div class="st__inner">
+
+    <div class="st__header">
+      <nav class="st__crumbs" aria-label="Breadcrumb" style="margin-bottom:14px;">
+        <a href="/">Home</a> &rsaquo; <span>Terms &amp; Conditions</span>
+      </nav>
+      <span class="st__eyebrow">Legal</span>
+      <h1>Terms &amp; Conditions</h1>
+      <p>Please read these terms carefully before placing an order with Seba Digital. Using our website or buying from us means you agree to them.</p>
+      <span class="st__updated">Last updated: {{ 'now' | date: '%B %Y' }}</span>
+    </div>
+
+    <aside class="st__toc" aria-label="Table of contents">
+      <p class="st__toc-heading">Contents</p>
+      <ol>
+        <li><a href="#s1">Who we are</a></li>
+        <li><a href="#s2">Ordering &amp; acceptance</a></li>
+        <li><a href="#s3">Prices &amp; VAT</a></li>
+        <li><a href="#s4">Payment</a></li>
+        <li><a href="#s5">Delivery</a></li>
+        <li><a href="#s6">Cancellation &amp; returns</a></li>
+        <li><a href="#s7">Warranty &amp; liability</a></li>
+        <li><a href="#s8">Intellectual property</a></li>
+        <li><a href="#s9">Governing law</a></li>
+      </ol>
+    </aside>
+
+    <div class="st__body">
+
+      <h2 id="s1">1. Who we are</h2>
+      <p>These terms govern the use of our website and any purchase you make from us. In these terms, "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>" and "<strong>Seba Digital</strong>" refer to Seba Digital, trading from 42B Broadway, West Ealing, London&nbsp;W13&nbsp;0SU. You can contact us on 020 8567 8550 or at <a href="mailto:sales@sebadigital.co.uk">sales@sebadigital.co.uk</a>.</p>
+
+      <h2 id="s2">2. Ordering &amp; acceptance</h2>
+      <p>Products displayed on our website are an <strong>invitation to treat</strong>, not a firm offer. When you place an order, you are making an offer to buy — and a binding contract is only formed once we send an order confirmation email and dispatch the goods.</p>
+      <p>We reserve the right to decline or cancel any order, including (but not limited to) situations involving pricing errors, stock unavailability, suspected fraud, or bulk/high-value purchases we haven't pre-agreed.</p>
+
+      <h2 id="s3">3. Prices &amp; VAT</h2>
+      <p>All prices shown on the website include <strong>UK VAT at 20%</strong> unless stated otherwise. Prices are correct at the time of publication but are subject to change without notice. In the rare event that an item is listed at an incorrect price, we will contact you before processing the order.</p>
+
+      <h2 id="s4">4. Payment</h2>
+      <p>We accept credit and debit card payments processed via PayPal, including Visa, Visa Electron, Mastercard, and other major cards. Payment is taken at the time of purchase. Orders are only fulfilled once payment has cleared and the item is in stock.</p>
+
+      <h2 id="s5">5. Delivery</h2>
+      <p>Standard dispatch is <strong>within 1–2 working days</strong> of payment clearance. Full delivery terms, timings and costs are set out on our <a href="/pages/delivery-information">Delivery Information</a> page.</p>
+
+      <h2 id="s6">6. Cancellation &amp; returns</h2>
+      <p>You have a statutory right to cancel your order within <strong>14 days of receiving your goods</strong> under the UK Consumer Contracts Regulations 2013. Full instructions, including how to request an RMA number, are on our <a href="/pages/returns-refunds-policy">Returns &amp; Refunds Policy</a> page.</p>
+      <p>Please note that sealed blank media (CD-R, DVD, Blu-ray, tapes) cannot be returned once the seal has been broken, in line with the sealed-goods exception under the Regulations.</p>
+
+      <h2 id="s7">7. Warranty &amp; liability</h2>
+      <p>All products carry the standard <strong>manufacturer's warranty</strong> from the date of purchase, in addition to your statutory rights under the Consumer Rights Act 2015. If a product develops a fault within the warranty period, contact us and we'll help you arrange a repair, replacement or refund.</p>
+      <p>To the extent permitted by law, Seba Digital is not liable for any indirect, incidental or consequential loss arising from the use of our website or products. Nothing in these terms limits our liability for death, personal injury caused by our negligence, or fraud.</p>
+
+      <h2 id="s8">8. Intellectual property</h2>
+      <p>All content on this website — including images, text, logos, and product descriptions — is owned by Seba Digital or licensed from our suppliers. You may not copy, reproduce or reuse it for commercial purposes without written permission.</p>
+
+      <h2 id="s9">9. Governing law</h2>
+      <p>These terms and any dispute arising from them are governed by the <strong>laws of England and Wales</strong>. Any dispute will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Terms page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "Terms page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

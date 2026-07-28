@@ -1,0 +1,363 @@
+<style>
+  .sh {
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 72px 0 64px;
+  }
+
+  /* Subtle dot pattern */
+  .sh::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(37,99,235,0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+  }
+
+  /* Blue glow blobs */
+  .sh__blob-1 {
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .sh__blob-2 {
+    position: absolute;
+    bottom: -120px; left: -60px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sh__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* ── LEFT: content ── */
+  .sh__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+  .sh__badge-dot {
+    width: 7px; height: 7px;
+    background: #2563eb;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: sh-pulse 2s infinite;
+  }
+  @keyframes sh-pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .sh__heading {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px;
+  }
+  .sh__heading span { color: #2563eb; }
+
+  .sh__sub {
+    font-size: 16px;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0 0 28px;
+    max-width: 480px;
+  }
+
+  /* CTAs */
+  .sh__ctas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .sh__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .sh__btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+  .sh__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 12px;
+    border: 1.5px solid #e5e7eb;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .sh__btn-secondary:hover { border-color: #2563eb; color: #2563eb; }
+
+  /* Stats */
+  .sh__stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+  }
+  .sh__stat {
+    flex: 1;
+    min-width: 80px;
+    padding-right: 20px;
+    border-right: 1px solid #e5e7eb;
+    margin-right: 20px;
+  }
+  .sh__stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .sh__stat-val {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .sh__stat-lbl {
+    display: block;
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
+  /* ── RIGHT: mini-cards ── */
+  .sh__visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sh__card {
+    background: #f9fafb;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  }
+  .sh__card:nth-child(even) { margin-top: 20px; }
+  .sh__card:hover {
+    border-color: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.10);
+  }
+  .sh__card-emoji { font-size: 30px; line-height: 1; }
+  .sh__card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.3;
+  }
+  .sh__card:hover .sh__card-name { color: #2563eb; }
+  .sh__card-arrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    margin-top: auto;
+  }
+  .sh__card:hover .sh__card-arrow { color: #2563eb; }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .sh__wrap { grid-template-columns: 1fr; gap: 0; }
+    .sh__visual { display: none; }
+    .sh { padding: 48px 0 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .sh__wrap { padding: 0 20px; }
+    .sh__badge { font-size: 11px; padding: 5px 12px; }
+    .sh__sub { font-size: 15px; }
+    .sh__ctas { flex-direction: column; align-items: flex-start; }
+    .sh__btn-primary,
+    .sh__btn-secondary { width: 100%; justify-content: center; padding: 13px 20px; }
+    .sh__stats { gap: 0; }
+    .sh__stat { min-width: 70px; padding-right: 14px; margin-right: 14px; }
+    .sh__stat-val { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .sh { padding: 36px 0 32px; }
+    .sh__wrap { padding: 0 16px; }
+    .sh__badge { font-size: 10px; }
+    .sh__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid #e5e7eb; padding-top: 20px; }
+    .sh__stat { border-right: none; margin-right: 0; padding-right: 0; }
+    .sh__stat-val { font-size: 20px; }
+  }
+</style>
+
+<section class="sh">
+  <div class="sh__blob-1" aria-hidden="true"></div>
+  <div class="sh__blob-2" aria-hidden="true"></div>
+
+  <div class="sh__wrap">
+
+    {%- comment -%} LEFT — content {%- endcomment -%}
+    <div class="sh__content">
+
+      <div class="sh__badge">
+        <span class="sh__badge-dot" aria-hidden="true"></span>
+        {{ section.settings.badge_text | default: "UK's Trusted Electronics Store" }}
+      </div>
+
+      <h1 class="sh__heading">{{ section.settings.heading | default: 'Premium Electronics Accessories' }}</h1>
+
+      <p class="sh__sub">{{ section.settings.subheading | default: 'Genuine Panasonic, TDK, Kingston & more. Fast UK delivery on 200+ products.' }}</p>
+
+      <div class="sh__ctas">
+        <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="sh__btn-primary">
+          {{ section.settings.cta_label | default: 'Shop All Products' }}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="{{ section.settings.secondary_cta_link | default: '/collections/dvd-media' }}" class="sh__btn-secondary">
+          {{ section.settings.secondary_cta_label | default: 'DVD & Media' }}
+        </a>
+      </div>
+
+      <div class="sh__stats">
+        <div class="sh__stat">
+          <span class="sh__stat-val">{{ section.settings.stat_1_value | default: '200+' }}</span>
+          <span class="sh__stat-lbl">{{ section.settings.stat_1_label | default: 'Products' }}</span>
+        </div>
+        <div class="sh__stat">
+          <span class="sh__stat-val">{{ section.settings.stat_2_value | default: '11' }}</span>
+          <span class="sh__stat-lbl">{{ section.settings.stat_2_label | default: 'Categories' }}</span>
+        </div>
+        <div class="sh__stat">
+          <span class="sh__stat-val">{{ section.settings.stat_3_value | default: '10K+' }}</span>
+          <span class="sh__stat-lbl">{{ section.settings.stat_3_label | default: 'Customers' }}</span>
+        </div>
+        <div class="sh__stat">
+          <span class="sh__stat-val">{{ section.settings.stat_4_value | default: '4.9★' }}</span>
+          <span class="sh__stat-lbl">{{ section.settings.stat_4_label | default: 'Rating' }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    {%- comment -%} RIGHT — mini category cards (hidden on mobile) {%- endcomment -%}
+    <div class="sh__visual" aria-hidden="true">
+      {%- assign cards = "📺,TV Accessories,/collections/tv-accessories|🎧,Headphones,/collections/headphones|💾,Storage Devices,/collections/storage-devices|📱,Phone Accessories,/collections/phone-accessories" | split: '|' -%}
+      {%- for card in cards -%}
+        {%- assign p = card | split: ',' -%}
+        <a href="{{ p[2] }}" class="sh__card">
+          <span class="sh__card-emoji">{{ p[0] }}</span>
+          <span class="sh__card-name">{{ p[1] }}</span>
+          <span class="sh__card-arrow">Shop →</span>
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "UK's Trusted Electronics Store"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Premium Electronics Accessories"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Genuine Panasonic, TDK, Kingston & more. Fast UK delivery on 200+ products across 11 categories."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Primary button label",
+      "default": "Shop All Products"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary button label",
+      "default": "DVD & Media"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Stats"
+    },
+    { "type": "text", "id": "stat_1_value", "label": "Stat 1 value", "default": "200+" },
+    { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Products" },
+    { "type": "text", "id": "stat_2_value", "label": "Stat 2 value", "default": "11" },
+    { "type": "text", "id": "stat_2_label", "label": "Stat 2 label", "default": "Categories" },
+    { "type": "text", "id": "stat_3_value", "label": "Stat 3 value", "default": "10K+" },
+    { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Customers" },
+    { "type": "text", "id": "stat_4_value", "label": "Stat 4 value", "default": "4.9★" },
+    { "type": "text", "id": "stat_4_label", "label": "Stat 4 label", "default": "Rating" }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "settings": {
+        "heading": "Premium Electronics Accessories",
+        "subheading": "Genuine Panasonic, TDK, Kingston & more. Fast UK delivery on 200+ products across 11 categories."
+      }
+    }
+  ]
+}
+{% endschema %}

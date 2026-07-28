@@ -1,0 +1,456 @@
+<style>
+  .sf {
+    background: #111827;
+    color: #9ca3af;
+    border-top: 1px solid #1f2937;
+  }
+
+  /* Newsletter banner */
+  .sf__nl {
+    background: rgba(37,99,235,0.08);
+    border-bottom: 1px solid #1f2937;
+    padding: 28px 0;
+  }
+  .sf__nl-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .sf__nl-heading { font-size: 17px; font-weight: 700; color: #f9fafb; margin: 0 0 4px; }
+  .sf__nl-sub { font-size: 13px; color: #6b7280; margin: 0; }
+  .sf__nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sf__nl-input {
+    width: 260px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    color: #f9fafb;
+    font-size: 13px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .sf__nl-input:focus { border-color: #2563eb; }
+  .sf__nl-input::placeholder { color: #6b7280; }
+  .sf__nl-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .sf__nl-btn:hover { background: #1d4ed8; }
+  .sf__nl-success { color: #34d399; font-size: 13px; font-weight: 600; }
+
+  /* Main columns */
+  .sf__main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+    gap: 40px;
+  }
+
+  /* Logo */
+  .sf__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+  .sf__logo-icon {
+    width: 36px; height: 36px;
+    background: #2563eb;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800; color: #fff;
+    flex-shrink: 0;
+  }
+  .sf__logo-name { font-size: 18px; font-weight: 800; color: #f9fafb; letter-spacing: -0.01em; }
+  .sf__tagline { font-size: 13px; color: #6b7280; line-height: 1.6; margin: 0 0 20px; }
+
+  /* Contact */
+  .sf__contacts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 20px; }
+  .sf__contact {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 13px; color: #9ca3af;
+    text-decoration: none;
+  }
+  .sf__contact svg { width: 14px; height: 14px; stroke: #2563eb; flex-shrink: 0; }
+  .sf__contact:hover { color: #f9fafb; }
+
+  /* Socials */
+  .sf__socials { display: flex; gap: 8px; }
+  .sf__social {
+    width: 32px; height: 32px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .sf__social:hover { background: #2563eb; border-color: #2563eb; }
+  .sf__social svg { width: 14px; height: 14px; stroke: #9ca3af; }
+  .sf__social:hover svg { stroke: #fff; }
+
+  /* Nav columns */
+  .sf__col-heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: #f9fafb;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 14px;
+  }
+  .sf__links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sf__links a {
+    font-size: 13px;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .sf__links a:hover { color: #f9fafb; }
+  .sf__col-spacer { margin-top: 24px; }
+
+  /* Hours */
+  .sf__hours {
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #6b7280;
+  }
+  .sf__hours strong { display: block; color: #f9fafb; font-size: 12px; margin-bottom: 4px; }
+
+  /* Bottom bar */
+  .sf__bar {
+    border-top: 1px solid #1f2937;
+  }
+  .sf__bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .sf__copy { font-size: 12px; color: #4b5563; }
+  .sf__payments { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .sf__payment-pill {
+    padding: 3px 8px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 5px;
+    font-size: 10px;
+    font-family: monospace;
+    color: #6b7280;
+  }
+  .sf__ssl { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #4b5563; }
+  .sf__ssl svg { stroke: #4b5563; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .sf__main { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 640px) {
+    .sf__main { grid-template-columns: 1fr; gap: 28px; padding: 32px 16px 28px; }
+    .sf__nl-inner { flex-direction: column; align-items: flex-start; }
+    .sf__nl-input { width: 100%; }
+    .sf__bar-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+</style>
+
+<footer class="sf" role="contentinfo">
+
+  {%- comment -%} Newsletter strip {%- endcomment -%}
+  <div class="sf__nl">
+    <div class="sf__nl-inner">
+      <div>
+        <p class="sf__nl-heading">Stay in the loop</p>
+        <p class="sf__nl-sub">Deals, new arrivals and exclusive offers</p>
+      </div>
+      {%- form 'customer', id: 'footer-nl-form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="sf__nl-success">✓ Thanks for subscribing!</p>
+        {%- else -%}
+          <div class="sf__nl-form">
+            <input type="email" name="contact[email]" placeholder="Your email address" class="sf__nl-input" required aria-label="Email">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <button type="submit" class="sf__nl-btn">Subscribe</button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+
+  {%- comment -%} Main columns {%- endcomment -%}
+  <div class="sf__main">
+
+    {%- comment -%} Col 1: Brand {%- endcomment -%}
+    <div>
+      <a href="/" class="sf__logo">
+        <div class="sf__logo-icon">S</div>
+        <span class="sf__logo-name">{{ shop.name }}</span>
+      </a>
+      <p class="sf__tagline">{{ section.settings.tagline | default: "UK's trusted source for genuine electronics accessories. Fast dispatch, fair prices." }}</p>
+
+      <div class="sf__contacts">
+        {%- if section.settings.phone != blank -%}
+          <a href="tel:{{ section.settings.phone | remove: ' ' }}" class="sf__contact">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {{ section.settings.phone }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.email != blank -%}
+          <a href="mailto:{{ section.settings.email }}" class="sf__contact">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            {{ section.settings.email }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.address != blank -%}
+          <span class="sf__contact">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            {{ section.settings.address }}
+          </span>
+        {%- endif -%}
+      </div>
+
+      <div class="sf__socials">
+        {%- if settings.social_facebook_link != blank -%}
+          <a href="{{ settings.social_facebook_link }}" class="sf__social" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          <a href="{{ settings.social_instagram_link }}" class="sf__social" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_twitter_link != blank -%}
+          <a href="{{ settings.social_twitter_link }}" class="sf__social" aria-label="X" target="_blank" rel="noopener">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          <a href="{{ settings.social_youtube_link }}" class="sf__social" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Col 2: Categories menu {%- endcomment -%}
+    <div>
+      <p class="sf__col-heading">{{ section.settings.col2_heading | default: 'Categories' }}</p>
+      {%- assign cat_menu = linklists[section.settings.menu_categories] -%}
+      {%- if cat_menu != blank -%}
+        <ul class="sf__links">
+          {%- for link in cat_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        {%- comment -%} Hardcoded fallback {%- endcomment -%}
+        <ul class="sf__links">
+          <li><a href="/collections/tv-accessories">TV Accessories</a></li>
+          <li><a href="/collections/headphones">Headphones</a></li>
+          <li><a href="/collections/storage-devices">Storage Devices</a></li>
+          <li><a href="/collections/phone-accessories">Phone Accessories</a></li>
+          <li><a href="/collections/dvd-media">DVD Media</a></li>
+          <li><a href="/collections/cd-media">CD Media</a></li>
+          <li><a href="/collections/blu-ray-media">Blu-ray Media</a></li>
+          <li><a href="/collections/recording-media">Recording Media</a></li>
+          <li><a href="/collections/home-entertainment">Home Entertainment</a></li>
+          <li><a href="/collections/photography-accessories">Photography</a></li>
+          <li><a href="/collections/media-accessories">Media Accessories</a></li>
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Col 3: Useful Information + Brands {%- endcomment -%}
+    <div>
+      <p class="sf__col-heading">{{ section.settings.col3_heading | default: 'Useful Information' }}</p>
+      {%- assign info_menu = linklists[section.settings.menu_info] -%}
+      {%- if info_menu != blank -%}
+        <ul class="sf__links">
+          {%- for link in info_menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <ul class="sf__links">
+          <li><a href="/pages/about-us">About Us</a></li>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/delivery-information">Delivery Information</a></li>
+          <li><a href="/pages/returns-refunds-policy">Returns &amp; Refunds Policy</a></li>
+          <li><a href="/pages/terms-conditions">Terms &amp; Conditions</a></li>
+          <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
+        </ul>
+      {%- endif -%}
+
+      <div class="sf__col-spacer">
+        <p class="sf__col-heading">Shop by Brand</p>
+        <ul class="sf__links">
+          <li><a href="/collections/panasonic">Panasonic</a></li>
+          <li><a href="/collections/tdk">TDK</a></li>
+          <li><a href="/collections/kingston">Kingston</a></li>
+          <li><a href="/collections/maxell">Maxell</a></li>
+          <li><a href="/collections/verbatim">Verbatim</a></li>
+          <li><a href="/collections/groov-e">Groov-e</a></li>
+        </ul>
+      </div>
+    </div>
+
+    {%- comment -%} Col 4: Hours {%- endcomment -%}
+    <div>
+      <p class="sf__col-heading">Opening Hours</p>
+      <div class="sf__hours">
+        <strong>{{ shop.name }}</strong>
+        {{ section.settings.opening_hours | default: 'Mon–Fri: 9am – 5pm<br>Saturday: 10am – 3pm<br>Sunday: Closed' }}
+      </div>
+
+      {%- if section.settings.phone != blank -%}
+        <div class="sf__col-spacer">
+          <p class="sf__col-heading">Need Help?</p>
+          <ul class="sf__links">
+            <li><a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></li>
+            {%- if section.settings.email != blank -%}
+              <li><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+            {%- endif -%}
+            <li><a href="/pages/contact">Send us a message</a></li>
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  {%- comment -%} Bottom bar {%- endcomment -%}
+  <div class="sf__bar">
+    <div class="sf__bar-inner">
+      <span class="sf__copy">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+        {%- if section.settings.company_reg != blank -%}&nbsp;·&nbsp; Reg: {{ section.settings.company_reg }}{%- endif -%}
+      </span>
+      <div class="sf__payments">
+        {%- assign payment_pills = "VISA,MC,AMEX,PayPal" | split: ',' -%}
+        {%- for pill in payment_pills -%}
+          <span class="sf__payment-pill">{{ pill }}</span>
+        {%- endfor -%}
+        <span class="sf__ssl">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          SSL Secure
+        </span>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand column"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "UK's trusted source for genuine electronics accessories. Panasonic, TDK, Kingston & more."
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+44 (0) 20 1234 5678"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@sebadigital.co.uk"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "London, United Kingdom"
+    },
+    {
+      "type": "header",
+      "content": "Navigation columns"
+    },
+    {
+      "type": "text",
+      "id": "col2_heading",
+      "label": "Column 2 heading",
+      "default": "Categories"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_categories",
+      "label": "Categories menu",
+      "info": "Create a menu in Online Store → Navigation and select it here"
+    },
+    {
+      "type": "text",
+      "id": "col3_heading",
+      "label": "Column 3 heading",
+      "default": "Useful Information"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_info",
+      "label": "Useful information menu",
+      "info": "Recommended links: About Us, Contact Us, Delivery Information, Returns & Refunds Policy, Terms & Conditions, Privacy Policy"
+    },
+    {
+      "type": "header",
+      "content": "Hours column"
+    },
+    {
+      "type": "html",
+      "id": "opening_hours",
+      "label": "Opening hours",
+      "default": "Mon–Fri: 9am – 5pm<br>Saturday: 10am – 3pm<br>Sunday: Closed"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "company_reg",
+      "label": "Company registration number"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

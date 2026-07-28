@@ -1,0 +1,287 @@
+<style>
+  .sp {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .sp__inner { max-width: 1080px; margin: 0 auto; }
+  .sp__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .sp__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .sp__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .sp__hero {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sp__hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .sp__hero::after {
+    content: '';
+    position: absolute; bottom: -40px; left: 30%;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .sp__eyebrow {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .sp__hero h1 {
+    font-size: 40px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0 0 12px; color: #fff; position: relative; z-index: 1;
+  }
+  .sp__hero p {
+    font-size: 17px; line-height: 1.6; margin: 0; max-width: 620px;
+    color: rgba(255,255,255,0.92); position: relative; z-index: 1;
+  }
+
+  .sp__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 44px;
+  }
+  .sp__stat {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 22px 20px;
+    text-align: left;
+  }
+  .sp__stat-num {
+    font-size: 30px; font-weight: 800; color: var(--seba-accent, #2563eb);
+    line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em;
+  }
+  .sp__stat-label { font-size: 13px; color: var(--seba-muted, #6b7280); line-height: 1.4; }
+
+  .sp__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .sp__body h2 {
+    font-size: 24px; font-weight: 800; color: var(--seba-text, #111827);
+    letter-spacing: -0.01em; margin: 32px 0 12px;
+  }
+  .sp__body h2:first-child { margin-top: 0; }
+  .sp__body p {
+    font-size: 15px; line-height: 1.7; color: var(--seba-text-2, #374151);
+    margin: 0 0 14px;
+  }
+  .sp__body strong { color: var(--seba-text, #111827); font-weight: 600; }
+
+  .sp__aside { position: sticky; top: 24px; }
+  .sp__card {
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .sp__card h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--seba-muted, #6b7280);
+    margin: 0 0 14px;
+  }
+  .sp__brands { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sp__brand {
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    color: var(--seba-text-2, #374151);
+  }
+
+  .sp__values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .sp__value {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .sp__value-icon {
+    width: 40px; height: 40px;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+    font-size: 20px; font-weight: 800;
+  }
+  .sp__value h4 { font-size: 16px; font-weight: 700; margin: 0 0 6px; color: var(--seba-text, #111827); }
+  .sp__value p { font-size: 13px; color: var(--seba-muted, #6b7280); margin: 0; line-height: 1.55; }
+
+  .sp__cta {
+    background: var(--seba-text, #111827);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 44px;
+  }
+  .sp__cta h3 { font-size: 22px; font-weight: 800; margin: 0 0 8px; }
+  .sp__cta p { font-size: 14px; color: #9ca3af; margin: 0 0 18px; }
+  .sp__cta-row { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .sp__btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .sp__btn--primary { background: var(--seba-accent, #2563eb); color: #fff; }
+  .sp__btn--primary:hover { background: var(--seba-accent-hi, #1d4ed8); }
+  .sp__btn--ghost { background: transparent; color: #fff; border: 1px solid #374151; }
+  .sp__btn--ghost:hover { background: #1f2937; }
+
+  @media (max-width: 900px) {
+    .sp__stats { grid-template-columns: 1fr 1fr; }
+    .sp__grid { grid-template-columns: 1fr; }
+    .sp__values { grid-template-columns: 1fr; }
+    .sp__hero { padding: 32px 24px; }
+    .sp__hero h1 { font-size: 30px; }
+  }
+</style>
+
+<section class="sp">
+  <div class="sp__inner">
+
+    <nav class="sp__crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo; <span>About Us</span>
+    </nav>
+
+    <div class="sp__hero">
+      <span class="sp__eyebrow">Family-run since the 1990s</span>
+      <h1>Three decades of trusted media, one family, one mission.</h1>
+      <p>Seba Digital is a family-owned electronics specialist based in West Ealing, London. We supply genuine blank media, TV accessories, and home entertainment gear from the world's most trusted brands — and we've been doing it for over 30 years.</p>
+    </div>
+
+    <div class="sp__stats">
+      <div class="sp__stat">
+        <div class="sp__stat-num">30+</div>
+        <div class="sp__stat-label">Years serving customers across the UK</div>
+      </div>
+      <div class="sp__stat">
+        <div class="sp__stat-num">100%</div>
+        <div class="sp__stat-label">Genuine, brand-authorised stock</div>
+      </div>
+      <div class="sp__stat">
+        <div class="sp__stat-num">1-2</div>
+        <div class="sp__stat-label">Working days to dispatch your order</div>
+      </div>
+      <div class="sp__stat">
+        <div class="sp__stat-num">W13</div>
+        <div class="sp__stat-label">London-based storefront &amp; workshop</div>
+      </div>
+    </div>
+
+    <div class="sp__grid">
+      <div class="sp__body">
+        <h2>Who we are</h2>
+        <p>We're a small family business with a big catalogue. From our Broadway shop in West Ealing, we serve customers all over the United Kingdom with <strong>blank media, TV brackets and cabinets, cables, headphones and mobile accessories</strong>. If it plugs in, mounts on a wall, or preserves a memory, chances are we stock it.</p>
+        <p>Over three decades we've built direct relationships with the manufacturers our customers trust — so what you buy from Seba Digital is the real thing, sourced through official channels, and priced fairly.</p>
+
+        <h2>What we do</h2>
+        <p>Beyond retail, we're a specialist workshop. Our engineers install and wall-mount televisions, set up home cinema systems, and transfer old VHS, camcorder and cine reels to modern DVD — including PAL, NTSC and SECAM formats. Nothing gets outsourced. Every job is handled in-house.</p>
+
+        <h2>Why customers stay</h2>
+        <p>We answer the phone. We know our stock. We don't upsell you on things you don't need. And when a delivery goes wrong or a product fails, a real person — not a call-centre script — sorts it out. That's the whole model, and it hasn't changed in 30 years.</p>
+      </div>
+
+      <aside class="sp__aside">
+        <div class="sp__card">
+          <h3>Brand Partners</h3>
+          <div class="sp__brands">
+            <span class="sp__brand">Panasonic</span>
+            <span class="sp__brand">TDK</span>
+            <span class="sp__brand">JVC</span>
+            <span class="sp__brand">Maxell</span>
+            <span class="sp__brand">Memorex</span>
+            <span class="sp__brand">Verbatim</span>
+            <span class="sp__brand">Nedis</span>
+            <span class="sp__brand">Kingston</span>
+          </div>
+        </div>
+        <div class="sp__card">
+          <h3>Visit our shop</h3>
+          <p style="font-size:13px; line-height:1.6; color:var(--seba-text-2,#374151); margin:0 0 10px;">
+            <strong>Seba Digital</strong><br>
+            42B Broadway, West Ealing<br>
+            London W13 0SU
+          </p>
+          <p style="font-size:13px; margin:0; color:var(--seba-muted,#6b7280);">
+            Store: 020 8567 8550<br>
+            Mobile: 07404 944044
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="sp__values">
+      <div class="sp__value">
+        <div class="sp__value-icon">✓</div>
+        <h4>Genuine Products</h4>
+        <p>Sourced direct from authorised distributors. No grey imports, no counterfeits — ever.</p>
+      </div>
+      <div class="sp__value">
+        <div class="sp__value-icon">↻</div>
+        <h4>Fast Dispatch</h4>
+        <p>Orders leave our workshop within 1–2 working days of payment clearance.</p>
+      </div>
+      <div class="sp__value">
+        <div class="sp__value-icon">☎</div>
+        <h4>Real Support</h4>
+        <p>Talk to the same team that packs your order. No overseas call centres.</p>
+      </div>
+    </div>
+
+    <div class="sp__cta">
+      <h3>Questions? We're around.</h3>
+      <p>Give us a ring, drop us an email, or pop into the shop.</p>
+      <div class="sp__cta-row">
+        <a class="sp__btn sp__btn--primary" href="/pages/contact">Contact Us</a>
+        <a class="sp__btn sp__btn--ghost" href="/collections/all">Browse the shop</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "About page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

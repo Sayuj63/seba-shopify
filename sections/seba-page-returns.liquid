@@ -1,0 +1,284 @@
+<style>
+  .sr {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .sr__inner { max-width: 1080px; margin: 0 auto; }
+  .sr__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .sr__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .sr__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .sr__header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+    align-items: center;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 36px;
+  }
+  .sr__eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .sr__header h1 {
+    font-size: 32px; font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 10px; color: var(--seba-text, #111827);
+  }
+  .sr__header p {
+    font-size: 15px; line-height: 1.6; margin: 0;
+    color: var(--seba-text-2, #374151);
+  }
+  .sr__stat-block {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+  .sr__stat-block-big {
+    font-size: 42px; font-weight: 800; color: var(--seba-accent, #2563eb);
+    line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em;
+  }
+  .sr__stat-block-lbl {
+    font-size: 12px; font-weight: 600;
+    color: var(--seba-muted, #6b7280);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .sr__stat-block-sub {
+    font-size: 12px; color: var(--seba-muted, #6b7280);
+    margin-top: 8px;
+  }
+
+  .sr__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .sr__step {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+  }
+  .sr__step-num {
+    position: absolute; top: -12px; left: 18px;
+    width: 28px; height: 28px;
+    background: var(--seba-accent, #2563eb);
+    color: #fff;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .sr__step h4 {
+    font-size: 14px; font-weight: 700; margin: 6px 0 6px;
+    color: var(--seba-text, #111827);
+  }
+  .sr__step p {
+    font-size: 13px; line-height: 1.55; margin: 0;
+    color: var(--seba-muted, #6b7280);
+  }
+
+  .sr__body h2 {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 32px 0 12px; color: var(--seba-text, #111827);
+  }
+  .sr__body p {
+    font-size: 15px; line-height: 1.7; margin: 0 0 12px;
+    color: var(--seba-text-2, #374151);
+  }
+  .sr__body strong { color: var(--seba-text, #111827); font-weight: 600; }
+  .sr__body ul { padding-left: 20px; margin: 0 0 16px; }
+  .sr__body li { font-size: 15px; line-height: 1.7; color: var(--seba-text-2, #374151); margin-bottom: 6px; }
+
+  .sr__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .sr__panel {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 22px;
+  }
+  .sr__panel--good { background: #f0fdf4; border-color: #86efac; }
+  .sr__panel--bad { background: #fef2f2; border-color: #fca5a5; }
+  .sr__panel h3 {
+    font-size: 15px; font-weight: 700;
+    margin: 0 0 12px; color: var(--seba-text, #111827);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sr__panel--good h3 { color: #166534; }
+  .sr__panel--bad h3 { color: #991b1b; }
+  .sr__panel ul { padding-left: 18px; margin: 0; }
+  .sr__panel li { font-size: 13px; line-height: 1.6; color: var(--seba-text-2, #374151); }
+
+  .sr__note {
+    background: var(--seba-accent-lt, #dbeafe);
+    border-left: 4px solid var(--seba-accent, #2563eb);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #1e3a8a;
+    line-height: 1.6;
+  }
+
+  .sr__cta {
+    background: var(--seba-text, #111827);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .sr__cta h3 { font-size: 20px; font-weight: 800; margin: 0 0 4px; }
+  .sr__cta p { font-size: 14px; color: #9ca3af; margin: 0; }
+  .sr__cta a {
+    background: var(--seba-accent, #2563eb);
+    color: #fff; text-decoration: none;
+    padding: 12px 24px; border-radius: 10px;
+    font-size: 14px; font-weight: 600;
+    white-space: nowrap;
+  }
+  .sr__cta a:hover { background: var(--seba-accent-hi, #1d4ed8); }
+
+  @media (max-width: 900px) {
+    .sr__header { grid-template-columns: 1fr; padding: 28px 24px; }
+    .sr__header h1 { font-size: 26px; }
+    .sr__steps { grid-template-columns: 1fr 1fr; }
+    .sr__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="sr">
+  <div class="sr__inner">
+
+    <nav class="sr__crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo; <span>Returns &amp; Refunds Policy</span>
+    </nav>
+
+    <div class="sr__header">
+      <div>
+        <span class="sr__eyebrow">Consumer Contracts Regulations 2013</span>
+        <h1>Changed your mind? No problem — here's how we handle returns.</h1>
+        <p>You have a statutory <strong>14-day cooling-off period</strong> from the day you receive your order to change your mind. We keep the process simple and honest, and we handle every refund by hand — not by algorithm.</p>
+      </div>
+      <div class="sr__stat-block">
+        <div class="sr__stat-block-big">14</div>
+        <div class="sr__stat-block-lbl">Days to cancel</div>
+        <div class="sr__stat-block-sub">From the date you receive your goods</div>
+      </div>
+    </div>
+
+    <div class="sr__steps">
+      <div class="sr__step">
+        <div class="sr__step-num">1</div>
+        <h4>Contact us</h4>
+        <p>Email or call within 14 days of receiving your order to request an RMA number.</p>
+      </div>
+      <div class="sr__step">
+        <div class="sr__step-num">2</div>
+        <h4>Repackage</h4>
+        <p>Return items in the original packaging, unused and unopened where possible.</p>
+      </div>
+      <div class="sr__step">
+        <div class="sr__step-num">3</div>
+        <h4>Post back</h4>
+        <p>Send via a tracked service to our workshop within 14 days of your notice to cancel.</p>
+      </div>
+      <div class="sr__step">
+        <div class="sr__step-num">4</div>
+        <h4>Get refunded</h4>
+        <p>Once we've inspected the return, we'll refund within 10 working days.</p>
+      </div>
+    </div>
+
+    <div class="sr__body">
+      <h2>Your right to cancel</h2>
+      <p>Under the UK Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, you have <strong>14 days from the day you receive your goods</strong> to notify us that you'd like to cancel. You then have a further 14 days to return them to us.</p>
+
+      <h2>How to start a return</h2>
+      <p>Before sending anything back, please contact us to get an <strong>RMA (Returns Merchandise Authorisation) number</strong>. Unauthorised returns can't be accepted at our workshop.</p>
+      <ul>
+        <li>Email: <a href="mailto:sales@sebadigital.co.uk">sales@sebadigital.co.uk</a></li>
+        <li>Phone: <a href="tel:02085678550">020 8567 8550</a></li>
+        <li>Include your order number and the reason for return</li>
+      </ul>
+
+      <h2>What can &amp; can't be returned</h2>
+      <div class="sr__grid">
+        <div class="sr__panel sr__panel--good">
+          <h3>✓ Returnable</h3>
+          <ul>
+            <li>Unopened, unused items in original packaging</li>
+            <li>Products with all seals, tags and accessories intact</li>
+            <li>Wrong item sent or delivery discrepancies</li>
+            <li>Faulty or defective goods (see below)</li>
+          </ul>
+        </div>
+        <div class="sr__panel sr__panel--bad">
+          <h3>✗ Non-returnable</h3>
+          <ul>
+            <li>Blank media (CD-R, DVD, Blu-ray, tapes) once the seal is broken</li>
+            <li>Items damaged through customer misuse</li>
+            <li>Software or digital downloads once activated</li>
+            <li>Special-order or personalised items</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Refund timelines</h2>
+      <p>Once your return arrives and passes inspection, refunds are issued to your original payment method within <strong>10 working days</strong>. Card issuers may then take a further 2–5 working days to show the credit on your statement.</p>
+
+      <h2>Return postage</h2>
+      <p>If you're cancelling under your 14-day right, return postage is your responsibility unless the item is faulty, incorrect or damaged. We recommend a tracked/signed-for service — we can't refund items that don't reach us.</p>
+      <p>If the return is because of <strong>our error</strong> (wrong item, faulty product, damaged in transit), we'll cover your reasonable return postage. Keep the receipt.</p>
+
+      <h2>Faulty or damaged items</h2>
+      <p>If your product develops a fault within the manufacturer's warranty period, or arrives damaged, please tell us within 48 hours of delivery. We'll arrange a replacement, repair or refund depending on the situation — you don't lose your statutory rights either way.</p>
+
+      <div class="sr__note">
+        <strong>Nothing here removes your statutory rights.</strong> UK consumer law gives you protections that sit alongside this policy. If in doubt, ask us.
+      </div>
+    </div>
+
+    <div class="sr__cta">
+      <div>
+        <h3>Need to start a return?</h3>
+        <p>Contact us with your order number — we'll issue an RMA within one working day.</p>
+      </div>
+      <a href="/pages/contact">Contact Us</a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Returns page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "Returns page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "seba-page-contact"
+      "type": "seba-page-about"
     }
   },
   "order": ["main"]

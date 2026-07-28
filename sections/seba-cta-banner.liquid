@@ -1,0 +1,153 @@
+<style>
+  .scta {
+    background: #fff;
+    padding: 64px 24px;
+  }
+  .scta__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .scta__block {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #1d4ed8 100%);
+    border-radius: 24px;
+    padding: 64px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Dot pattern overlay */
+  .scta__block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+  /* Glow circles */
+  .scta__block::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .scta__content { position: relative; z-index: 1; }
+  .scta__icon {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .scta__icon svg { width: 26px; height: 26px; stroke: #fff; }
+  .scta__heading {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .scta__subtext {
+    font-size: 17px;
+    color: rgba(255,255,255,0.80);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .scta__btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .scta__btn-primary {
+    background: #fff;
+    color: #1d4ed8;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .scta__btn-primary:hover { background: #eff6ff; transform: translateY(-2px); }
+  .scta__btn-secondary {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .scta__btn-secondary:hover { background: rgba(255,255,255,0.22); }
+  @media (max-width: 640px) {
+    .scta { padding: 44px 16px; }
+    .scta__block { padding: 44px 24px; border-radius: 18px; }
+    .scta__btns { flex-direction: column; align-items: center; }
+    .scta__btn-primary, .scta__btn-secondary { width: 100%; max-width: 280px; text-align: center; }
+  }
+</style>
+
+<section class="scta">
+  <div class="scta__inner">
+    <div class="scta__block">
+      <div class="scta__content">
+        <div class="scta__icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h2 class="scta__heading">{{ section.settings.heading | default: 'Ready to Order?' }}</h2>
+        {%- if section.settings.subtext != blank -%}
+          <p class="scta__subtext">{{ section.settings.subtext }}</p>
+        {%- endif -%}
+        <div class="scta__btns">
+          {%- if section.settings.primary_cta_label != blank -%}
+            <a href="{{ section.settings.primary_cta_link | default: '/collections/all' }}" class="scta__btn-primary">
+              {{ section.settings.primary_cta_label }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.secondary_cta_label != blank -%}
+            <a href="{{ section.settings.secondary_cta_link | default: '/pages/contact' }}" class="scta__btn-secondary">
+              {{ section.settings.secondary_cta_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Seba CTA Banner",
+  "tag": "section",
+  "settings": [
+    { "type": "text",     "id": "heading",            "label": "Heading",               "default": "Ready to Order?" },
+    { "type": "textarea", "id": "subtext",             "label": "Subtext",               "default": "Orders before 2pm ship same day. Free delivery on orders over £30." },
+    { "type": "header",   "content": "Primary Button" },
+    { "type": "text",     "id": "primary_cta_label",   "label": "Button label",          "default": "Shop All Products" },
+    { "type": "url",      "id": "primary_cta_link",    "label": "Button link" },
+    { "type": "header",   "content": "Secondary Button" },
+    { "type": "text",     "id": "secondary_cta_label", "label": "Button label",          "default": "Contact Us" },
+    { "type": "url",      "id": "secondary_cta_link",  "label": "Button link" }
+  ],
+  "presets": [
+    {
+      "name": "Seba CTA Banner",
+      "settings": {
+        "heading": "Ready to Order?",
+        "subtext": "Orders before 2pm ship same day. Free delivery on orders over £30.",
+        "primary_cta_label": "Shop All Products",
+        "secondary_cta_label": "Contact Us"
+      }
+    }
+  ]
+}
+{% endschema %}

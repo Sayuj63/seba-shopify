@@ -1,0 +1,319 @@
+<style>
+  .stv {
+    background: #fff;
+    padding: 72px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .stv__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  /* Image side */
+  .stv__img-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #f3f4f6;
+  }
+  .stv__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .stv__img-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+  }
+  .stv__img-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .stv__img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+  }
+
+  /* Content side */
+  .stv__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .stv__eyebrow-dot {
+    width: 6px; height: 6px;
+    background: #2563eb;
+    border-radius: 50%;
+  }
+  .stv__title {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 14px;
+  }
+  .stv__sub {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.65;
+    margin: 0 0 28px;
+  }
+
+  /* Features */
+  .stv__features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .stv__feature {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .stv__feature-icon {
+    width: 36px; height: 36px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .stv__feature-icon svg { width: 17px; height: 17px; stroke: #2563eb; }
+  .stv__feature-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 3px;
+  }
+  .stv__feature-text p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .stv__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+  .stv__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .stv__cta-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+  .stv__cta-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .stv__cta-phone {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .stv__cta-phone:hover { color: #2563eb; }
+  .stv__cta-phone svg { width: 16px; height: 16px; stroke: #2563eb; }
+
+  /* Coverage badge */
+  .stv__coverage {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+  .stv__coverage svg { width: 13px; height: 13px; stroke: #16a34a; }
+
+  @media (max-width: 900px) {
+    .stv__wrap { grid-template-columns: 1fr; gap: 36px; }
+    .stv__img-wrap { max-width: 520px; }
+    .stv { padding: 48px 0; }
+  }
+  @media (max-width: 480px) {
+    .stv__wrap { padding: 0 16px; }
+    .stv__cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<section class="stv">
+  <div class="stv__wrap">
+
+    {%- comment -%} Image {%- endcomment -%}
+    <div class="stv__img-wrap">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 800 | image_tag: alt: section.settings.title, loading: 'lazy', class: '' }}
+      {%- else -%}
+        <div class="stv__img-placeholder">📺</div>
+      {%- endif -%}
+      <div class="stv__img-badge">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        {{ section.settings.badge_text | default: 'Professional Installation' }}
+      </div>
+    </div>
+
+    {%- comment -%} Content {%- endcomment -%}
+    <div class="stv__content">
+      <div class="stv__eyebrow">
+        <span class="stv__eyebrow-dot"></span>
+        {{ section.settings.eyebrow | default: 'Local Service' }}
+      </div>
+
+      <h2 class="stv__title">{{ section.settings.title | default: 'Your Local TV Installation Specialists' }}</h2>
+
+      {%- if section.settings.coverage_text != blank -%}
+        <div class="stv__coverage">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {{ section.settings.coverage_text }}
+        </div>
+      {%- endif -%}
+
+      <p class="stv__sub">{{ section.settings.description | default: 'With many years of experience, we proudly provide professional TV installation services to our local community. Expert advice, reliable service and great value on TV wall mounting, installation and accessories.' }}</p>
+
+      <div class="stv__features">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature' -%}
+            <div class="stv__feature" {{ block.shopify_attributes }}>
+              <div class="stv__feature-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  {%- case block.settings.icon -%}
+                    {%- when 'tv' -%}<rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/>
+                    {%- when 'map' -%}<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                    {%- when 'star' -%}<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    {%- when 'phone' -%}<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.08 3.18 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    {%- else -%}<polyline points="20 6 9 17 4 12"/>
+                  {%- endcase -%}
+                </svg>
+              </div>
+              <div class="stv__feature-text">
+                <h4>{{ block.settings.heading }}</h4>
+                {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="stv__cta">
+        <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="stv__cta-btn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          {{ section.settings.cta_label | default: 'Get a Free Quote' }}
+        </a>
+        {%- if section.settings.phone != blank -%}
+          <a href="tel:{{ section.settings.phone | remove: ' ' }}" class="stv__cta-phone">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 12 19.79 19.79 0 0 1 1.08 3.18 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {{ section.settings.phone }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "TV Installation",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image",         "label": "Image" },
+    { "type": "text",         "id": "eyebrow",       "label": "Eyebrow label",    "default": "Local Service" },
+    { "type": "text",         "id": "title",         "label": "Heading",          "default": "Your Local TV Installation Specialists" },
+    { "type": "text",         "id": "coverage_text", "label": "Coverage badge",   "default": "Covering all areas within a 7-mile radius" },
+    { "type": "textarea",     "id": "description",   "label": "Description",      "default": "With many years of experience, we proudly provide professional TV installation services to our local community. Expert advice, reliable service and great value on TV wall mounting, installation and accessories." },
+    { "type": "text",         "id": "badge_text",    "label": "Image badge text", "default": "Professional Installation" },
+    { "type": "text",         "id": "cta_label",     "label": "Button label",     "default": "Get a Free Quote" },
+    { "type": "url",          "id": "cta_link",      "label": "Button link" },
+    { "type": "text",         "id": "phone",         "label": "Phone number",     "default": "07404 944044" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "check",
+          "options": [
+            { "value": "check", "label": "Checkmark" },
+            { "value": "tv",    "label": "TV" },
+            { "value": "map",   "label": "Location" },
+            { "value": "star",  "label": "Star" },
+            { "value": "phone", "label": "Phone" }
+          ]
+        },
+        { "type": "text",     "id": "heading", "label": "Heading", "default": "TV Installation & Wall Mounting" },
+        { "type": "textarea", "id": "text",    "label": "Description", "default": "High-quality workmanship with every installation, ensuring your television is securely and professionally mounted." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "TV Installation",
+      "settings": {
+        "title": "Your Local TV Installation Specialists",
+        "phone": "07404 944044"
+      },
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "tv",    "heading": "TV Installation & Wall Mounting",  "text": "High-quality workmanship ensuring your TV is securely and professionally mounted for the perfect viewing experience." } },
+        { "type": "feature", "settings": { "icon": "map",   "heading": "Local Service — 7-Mile Radius",    "text": "Fast, friendly and dependable service covering all areas within a 7-mile radius." } },
+        { "type": "feature", "settings": { "icon": "star",  "heading": "Expert Advice",                    "text": "Whether you need a TV installed, wall mounted or your home entertainment system set up — we're here to help." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

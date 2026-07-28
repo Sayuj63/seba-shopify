@@ -1,75 +1,276 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "seba_hero": {
+      "type": "seba-hero",
+      "settings": {
+        "heading": "Premium Tech Accessories for Less",
+        "subheading": "Genuine Panasonic, TDK, Kingston & more. Over 200+ products, fast UK dispatch.",
+        "cta_label": "Shop All Products",
+        "secondary_cta_label": "DVD & Media",
+        "stat_1_value": "200+",
+        "stat_1_label": "Products",
+        "stat_2_value": "11",
+        "stat_2_label": "Categories",
+        "stat_3_value": "10K+",
+        "stat_3_label": "Customers",
+        "stat_4_value": "4.9★",
+        "stat_4_label": "Rating"
+      }
+    },
+    "seba_trust": {
+      "type": "seba-trust-bar",
+      "settings": {
+        "trust_1_title": "Free UK Delivery",
+        "trust_1_sub": "On orders over £30",
+        "trust_2_title": "Genuine Products",
+        "trust_2_sub": "100% authentic brands",
+        "trust_3_title": "30-Day Returns",
+        "trust_3_sub": "Hassle-free policy",
+        "trust_4_title": "Expert Support",
+        "trust_4_sub": "Mon–Sat, 9am–5pm"
+      }
+    },
+    "seba_cats": {
+      "type": "seba-category-grid",
+      "settings": {
+        "heading": "Shop by Category",
+        "subheading": "11 categories covering everything you need",
+        "show_view_all": true
+      },
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "cat_tv": {
+          "type": "category",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading": "TV Accessories",
+            "link": "/collections/tv-accessories",
+            "emoji_icon": "📺",
+            "description": "Remote controls, TV cables, wall mounts & batteries for your home cinema setup.",
+            "bg_gradient": "blue"
           }
         },
-        "button": {
-          "type": "buttons",
+        "cat_headphones": {
+          "type": "category",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "Headphones",
+            "link": "/collections/headphones",
+            "emoji_icon": "🎧",
+            "description": "",
+            "bg_gradient": "indigo"
+          }
+        },
+        "cat_storage": {
+          "type": "category",
+          "settings": {
+            "heading": "Storage Devices",
+            "link": "/collections/storage-devices",
+            "emoji_icon": "💾",
+            "description": "",
+            "bg_gradient": "cyan"
+          }
+        },
+        "cat_phone": {
+          "type": "category",
+          "settings": {
+            "heading": "Phone Accessories",
+            "link": "/collections/phone-accessories",
+            "emoji_icon": "📱",
+            "description": "",
+            "bg_gradient": "teal"
+          }
+        },
+        "cat_dvd": {
+          "type": "category",
+          "settings": {
+            "heading": "DVD & Blu-ray Media",
+            "link": "/collections/dvd-media",
+            "emoji_icon": "💿",
+            "description": "",
+            "bg_gradient": "violet"
+          }
+        },
+        "cat_entertainment": {
+          "type": "category",
+          "settings": {
+            "heading": "Home Entertainment",
+            "link": "/collections/home-entertainment",
+            "emoji_icon": "🔊",
+            "description": "",
+            "bg_gradient": "sky"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+        "cat_tv",
+        "cat_headphones",
+        "cat_storage",
+        "cat_phone",
+        "cat_dvd",
+        "cat_entertainment"
+      ]
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "seba_featured": {
+      "type": "seba-featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
+        "heading": "Featured Products",
+        "subheading": "Hand-picked from our bestselling lines",
         "collection": "all",
         "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "show_vendor": true
+      }
+    },
+    "seba_brands": {
+      "type": "seba-brand-strip",
+      "settings": {
+        "label": "Trusted Brands We Stock"
+      },
+      "blocks": {
+        "brand_panasonic": { "type": "brand", "settings": { "brand_name": "Panasonic", "brand_link": "/collections/panasonic" } },
+        "brand_tdk":       { "type": "brand", "settings": { "brand_name": "TDK",       "brand_link": "/collections/tdk" } },
+        "brand_kingston":  { "type": "brand", "settings": { "brand_name": "Kingston",  "brand_link": "/collections/kingston" } },
+        "brand_maxell":    { "type": "brand", "settings": { "brand_name": "Maxell",    "brand_link": "/collections/maxell" } },
+        "brand_verbatim":  { "type": "brand", "settings": { "brand_name": "Verbatim",  "brand_link": "/collections/verbatim" } },
+        "brand_jvc":       { "type": "brand", "settings": { "brand_name": "JVC",       "brand_link": "/collections/jvc" } },
+        "brand_groove":    { "type": "brand", "settings": { "brand_name": "Groov-e",   "brand_link": "/collections/groov-e" } },
+        "brand_memorex":   { "type": "brand", "settings": { "brand_name": "Memorex",   "brand_link": "/collections/memorex" } },
+        "brand_philips":   { "type": "brand", "settings": { "brand_name": "Philips",    "brand_link": "/collections/philips" } },
+        "brand_nedis":     { "type": "brand", "settings": { "brand_name": "Nedis",      "brand_link": "/collections/nedis" } },
+        "brand_sony":      { "type": "brand", "settings": { "brand_name": "Sony",       "brand_link": "/collections/sony" } }
+      },
+      "block_order": [
+        "brand_panasonic",
+        "brand_tdk",
+        "brand_kingston",
+        "brand_maxell",
+        "brand_verbatim",
+        "brand_jvc",
+        "brand_groove",
+        "brand_memorex",
+        "brand_philips",
+        "brand_nedis",
+        "brand_sony"
+      ]
+    },
+    "seba_promo": {
+      "type": "seba-promo-banners",
+      "blocks": {
+        "promo_1": {
+          "type": "banner",
+          "settings": {
+            "label": "Great Value Packs",
+            "heading": "DVD & Blu-ray Media",
+            "subtext": "TDK, Verbatim & Panasonic. Bulk packs available.",
+            "cta_label": "Shop Media",
+            "cta_link": "/collections/dvd-media",
+            "color": "red"
+          }
+        },
+        "promo_2": {
+          "type": "banner",
+          "settings": {
+            "label": "Premium Audio",
+            "heading": "Headphones & Earphones",
+            "subtext": "Groov-e wireless, noise-cancelling & gaming headsets.",
+            "cta_label": "Shop Headphones",
+            "cta_link": "/collections/headphones",
+            "color": "purple"
+          }
+        }
+      },
+      "block_order": ["promo_1", "promo_2"]
+    },
+    "seba_reviews": {
+      "type": "seba-reviews",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "subheading": "Thousands of happy customers across the UK",
+        "show_overall_rating": true,
+        "overall_rating": "4.9",
+        "review_count": "Based on 2,400+ reviews"
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Sarah M.",
+            "stars": 5,
+            "review_text": "Excellent quality products, fast delivery and great prices. The TDK DVDs I ordered were exactly as described — genuine product, well packaged. Will definitely order again."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "James T.",
+            "stars": 5,
+            "review_text": "Ordered a Kingston USB drive and a set of Panasonic batteries. Arrived next day as promised. Packaging was superb. Seba Digital is my go-to store for electronics accessories now."
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Priya K.",
+            "stars": 5,
+            "review_text": "The Groov-e wireless headphones are brilliant for the price. Sound quality is great, comfortable fit, and the battery life is impressive. Highly recommend this store!"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"]
+    },
+    "seba_cta": {
+      "type": "seba-cta-banner",
+      "settings": {
+        "heading": "Ready to Order?",
+        "subtext": "Orders before 2pm ship same day. Free delivery on orders over £30.",
+        "primary_cta_label": "Shop All Products",
+        "primary_cta_link": "/collections/all",
+        "secondary_cta_label": "Contact Us",
+        "secondary_cta_link": "/pages/contact"
+      }
+    },
+    "seba_tv_install": {
+      "type": "seba-tv-installation",
+      "settings": {
+        "eyebrow": "Local Service",
+        "title": "Your Local TV Installation Specialists",
+        "coverage_text": "Covering all areas within a 7-mile radius",
+        "description": "With many years of experience, we proudly provide professional TV installation services to our local community. We offer expert advice, reliable service and great value on TV wall mounting, installation and accessories.",
+        "badge_text": "Professional Installation",
+        "cta_label": "Get a Free Quote",
+        "phone": "07404 944044"
+      },
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "icon": "tv",   "heading": "TV Installation & Wall Mounting", "text": "High-quality workmanship ensuring your TV is securely and professionally mounted for the perfect viewing experience." } },
+        "f2": { "type": "feature", "settings": { "icon": "map",  "heading": "Local Service — 7-Mile Radius",   "text": "Fast, friendly and dependable service covering all areas within a 7-mile radius." } },
+        "f3": { "type": "feature", "settings": { "icon": "star", "heading": "Expert Advice",                   "text": "Whether you need a TV installed, wall mounted or your home entertainment system set up — we're here to help." } }
+      },
+      "block_order": ["f1", "f2", "f3"]
+    },
+    "seba_vhs_dvd": {
+      "type": "seba-vhs-to-dvd",
+      "settings": {
+        "eyebrow": "Media Transfer Service",
+        "title": "Convert & Transfer VHS to DVD",
+        "trust_text": "Trusted for Over 30 Years",
+        "description": "Bring your treasured memories back to life with our professional media transfer service. With over 30 years of experience, we specialise in converting old video tapes into high-quality DVDs — helping you preserve precious family memories for generations to come.",
+        "price": "£6",
+        "price_label": "Per tape — all formats accepted",
+        "price_sub": "Free quote — no obligation",
+        "formats": "VHS,VHS-C,Video8,Hi8,Digital8,MiniDV,Mini DVD",
+        "checklist": "Fast turnaround,High-quality transfers,Affordable prices,30+ years experience,Free quote,Trusted service",
+        "cta_label": "Book a Transfer",
+        "phone": "07404 944044"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "seba_hero",
+    "seba_trust",
+    "seba_cats",
+    "seba_featured",
+    "seba_brands",
+    "seba_promo",
+    "seba_tv_install",
+    "seba_vhs_dvd",
+    "seba_reviews",
+    "seba_cta"
   ]
 }

@@ -1,0 +1,219 @@
+<style>
+  .sbs {
+    background: #fff;
+    padding: 52px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .sbs__wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .sbs__label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 32px;
+  }
+  .sbs__track-wrap {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  }
+  .sbs__track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: max-content;
+    animation: sbs-scroll 32s linear infinite;
+  }
+  .sbs__track-wrap:hover .sbs__track { animation-play-state: paused; }
+  @keyframes sbs-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .sbs__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 16px 28px;
+    height: 72px;
+    min-width: 140px;
+    text-decoration: none;
+    transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .sbs__card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 6px 20px rgba(37,99,235,0.13);
+    transform: translateY(-3px);
+  }
+  .sbs__card svg {
+    height: 32px;
+    width: auto;
+    max-width: 120px;
+    display: block;
+    transition: opacity 0.15s;
+  }
+  .sbs__card:hover svg { opacity: 0.85; }
+  @media (prefers-reduced-motion: reduce) {
+    .sbs__track { animation: none; }
+    .sbs__track-wrap { -webkit-mask-image: none; mask-image: none; }
+    .sbs__track { flex-wrap: wrap; justify-content: center; width: 100%; }
+  }
+</style>
+
+{%- liquid
+  assign brands = section.blocks
+-%}
+
+<section class="sbs">
+  <div class="sbs__wrap">
+
+    {%- if section.settings.label != blank -%}
+      <p class="sbs__label">{{ section.settings.label }}</p>
+    {%- endif -%}
+
+    <div class="sbs__track-wrap">
+      <div class="sbs__track">
+        {%- comment -%}Render twice for seamless infinite loop{%- endcomment -%}
+        {%- for pass in (1..2) -%}
+          {%- for block in section.blocks -%}
+            {%- assign bname = block.settings.brand_name -%}
+            {%- assign blink = block.settings.brand_link -%}
+            {%- assign tag = 'div' -%}
+            {%- if blink != blank -%}{%- assign tag = 'a' -%}{%- endif -%}
+
+            <{{ tag }}{% if blink != blank %} href="{{ blink }}"{% endif %} class="sbs__card"{% if pass == 1 %} {{ block.shopify_attributes }}{% endif %}>
+
+              {%- case bname -%}
+
+              {%- when 'Panasonic' -%}
+                <svg viewBox="0 0 200 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Panasonic">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="700" fill="#003087" letter-spacing="-0.5">Panasonic</text>
+                </svg>
+
+              {%- when 'TDK' -%}
+                <svg viewBox="0 0 90 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TDK">
+                  <rect x="0" y="0" width="90" height="50" rx="4" fill="#E31B23"/>
+                  <text x="8" y="38" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="2">TDK</text>
+                </svg>
+
+              {%- when 'Kingston' -%}
+                <svg viewBox="0 0 190 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kingston">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="29" font-weight="700" fill="#CC1B2B" letter-spacing="0.3">Kingston</text>
+                </svg>
+
+              {%- when 'Maxell' -%}
+                <svg viewBox="0 0 150 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Maxell">
+                  <text x="0" y="34" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="32" font-weight="800" fill="#0050A0" letter-spacing="-0.5" font-style="italic">maxell</text>
+                </svg>
+
+              {%- when 'Verbatim' -%}
+                <svg viewBox="0 0 175 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Verbatim">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#CC0000" letter-spacing="0.5">VERBATIM</text>
+                </svg>
+
+              {%- when 'JVC' -%}
+                <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JVC">
+                  <rect x="0" y="0" width="100" height="50" rx="4" fill="#001970"/>
+                  <text x="50" y="37" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">JVC</text>
+                </svg>
+
+              {%- when 'Groov-e' -%}
+                <svg viewBox="0 0 160 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Groov-e">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" fill="#00A651" letter-spacing="-0.3">groov-e</text>
+                </svg>
+
+              {%- when 'Memorex' -%}
+                <svg viewBox="0 0 185 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Memorex">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#0056A2" letter-spacing="0.5">memorex</text>
+                </svg>
+
+              {%- when 'Philips' -%}
+                <svg viewBox="0 0 155 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Philips">
+                  <text x="0" y="34" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="32" font-weight="800" fill="#0B1F8C" letter-spacing="-0.5">Philips</text>
+                </svg>
+
+              {%- when 'Nedis' -%}
+                <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nedis">
+                  <text x="0" y="34" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="32" font-weight="800" fill="#E30613" letter-spacing="-0.5">nedis</text>
+                </svg>
+
+              {%- when 'Sony' -%}
+                <svg viewBox="0 0 110 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sony">
+                  <text x="0" y="36" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="900" fill="#000000" letter-spacing="2">SONY</text>
+                </svg>
+
+              {%- else -%}
+                <svg viewBox="0 0 200 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{{ bname }}">
+                  <text x="0" y="33" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#374151">{{ bname }}</text>
+                </svg>
+
+              {%- endcase -%}
+
+            </{{ tag }}>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Strip",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label above brands",
+      "default": "Trusted Brands We Stock"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand name",
+          "default": "Panasonic"
+        },
+        {
+          "type": "url",
+          "id": "brand_link",
+          "label": "Collection link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Brand Strip",
+      "settings": { "label": "Trusted Brands We Stock" },
+      "blocks": [
+        { "type": "brand", "settings": { "brand_name": "Panasonic", "brand_link": "/collections/panasonic" } },
+        { "type": "brand", "settings": { "brand_name": "TDK",       "brand_link": "/collections/tdk" } },
+        { "type": "brand", "settings": { "brand_name": "Kingston",  "brand_link": "/collections/kingston" } },
+        { "type": "brand", "settings": { "brand_name": "Maxell",    "brand_link": "/collections/maxell" } },
+        { "type": "brand", "settings": { "brand_name": "Verbatim",  "brand_link": "/collections/verbatim" } },
+        { "type": "brand", "settings": { "brand_name": "JVC",       "brand_link": "/collections/jvc" } },
+        { "type": "brand", "settings": { "brand_name": "Groov-e",   "brand_link": "/collections/groov-e" } },
+        { "type": "brand", "settings": { "brand_name": "Memorex",   "brand_link": "/collections/memorex" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,147 @@
+{% comment %}
+  Seba Digital — 4-column Trust Signals Bar
+{% endcomment %}
+
+{{ 'seba-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="seba-trust-bar">
+  <div class="seba-trust-bar__container">
+
+    {%- comment -%} Truck / Free Delivery {%- endcomment -%}
+    <div class="seba-trust-bar__item">
+      <div class="seba-trust-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm10 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+      </div>
+      <div>
+        <p class="seba-trust-bar__title">{{ section.settings.trust_1_title | default: 'Free UK Delivery' }}</p>
+        <p class="seba-trust-bar__sub">{{ section.settings.trust_1_sub | default: 'On orders over £30' }}</p>
+      </div>
+    </div>
+
+    {%- comment -%} Shield / Genuine Products {%- endcomment -%}
+    <div class="seba-trust-bar__item">
+      <div class="seba-trust-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div>
+        <p class="seba-trust-bar__title">{{ section.settings.trust_2_title | default: 'Genuine Products' }}</p>
+        <p class="seba-trust-bar__sub">{{ section.settings.trust_2_sub | default: '100% authentic brands' }}</p>
+      </div>
+    </div>
+
+    {%- comment -%} Return arrow / 30-Day Returns {%- endcomment -%}
+    <div class="seba-trust-bar__item">
+      <div class="seba-trust-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v5h5"/>
+        </svg>
+      </div>
+      <div>
+        <p class="seba-trust-bar__title">{{ section.settings.trust_3_title | default: '30-Day Returns' }}</p>
+        <p class="seba-trust-bar__sub">{{ section.settings.trust_3_sub | default: 'Hassle-free policy' }}</p>
+      </div>
+    </div>
+
+    {%- comment -%} Headphone / Expert Support {%- endcomment -%}
+    <div class="seba-trust-bar__item">
+      <div class="seba-trust-bar__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+        </svg>
+      </div>
+      <div>
+        <p class="seba-trust-bar__title">{{ section.settings.trust_4_title | default: 'Expert Support' }}</p>
+        <p class="seba-trust-bar__sub">{{ section.settings.trust_4_sub | default: 'Mon–Sat, 9am–5pm' }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Seba Trust Bar",
+  "tag": "section",
+  "class": "seba-section-trust",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Trust Signal 1"
+    },
+    {
+      "type": "text",
+      "id": "trust_1_title",
+      "label": "Title",
+      "default": "Free UK Delivery"
+    },
+    {
+      "type": "text",
+      "id": "trust_1_sub",
+      "label": "Subtitle",
+      "default": "On orders over £30"
+    },
+    {
+      "type": "header",
+      "content": "Trust Signal 2"
+    },
+    {
+      "type": "text",
+      "id": "trust_2_title",
+      "label": "Title",
+      "default": "Genuine Products"
+    },
+    {
+      "type": "text",
+      "id": "trust_2_sub",
+      "label": "Subtitle",
+      "default": "100% authentic brands"
+    },
+    {
+      "type": "header",
+      "content": "Trust Signal 3"
+    },
+    {
+      "type": "text",
+      "id": "trust_3_title",
+      "label": "Title",
+      "default": "30-Day Returns"
+    },
+    {
+      "type": "text",
+      "id": "trust_3_sub",
+      "label": "Subtitle",
+      "default": "Hassle-free policy"
+    },
+    {
+      "type": "header",
+      "content": "Trust Signal 4"
+    },
+    {
+      "type": "text",
+      "id": "trust_4_title",
+      "label": "Title",
+      "default": "Expert Support"
+    },
+    {
+      "type": "text",
+      "id": "trust_4_sub",
+      "label": "Subtitle",
+      "default": "Mon–Sat, 9am–5pm"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Seba Trust Bar",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

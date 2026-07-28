@@ -1,4 +1,213 @@
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<style>
+/* ─── Seba Digital — Mobile Header Overrides ─── */
+
+/* Announcement bar — tighter on mobile */
+@media (max-width: 749px) {
+  .seba-announcement-bar,
+  .announcement-bar {
+    font-size: 11px !important;
+    padding: 7px 0 !important;
+  }
+}
+
+/* Header wrapper — clean white + shadow */
+.header-wrapper {
+  background: #fff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
+}
+
+/* Mobile header layout */
+@media (max-width: 989px) {
+  .header {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    gap: 0 !important;
+    min-height: 56px !important;
+  }
+
+  /* Hamburger — left col */
+  header-drawer {
+    margin-left: 0 !important;
+    margin-right: 4px !important;
+    justify-self: start !important;
+  }
+
+  /* Style the hamburger button itself */
+  header-drawer .header__icon,
+  .header__icon.header__icon--menu {
+    padding: 8px !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    transition: background 0.15s !important;
+  }
+  header-drawer .header__icon:hover,
+  .header__icon.header__icon--menu:hover {
+    background: #f3f4f6 !important;
+  }
+  header-drawer .header__icon svg,
+  .header__icon.header__icon--menu svg {
+    width: 22px !important;
+    height: 22px !important;
+    color: #111827 !important;
+  }
+
+  /* Logo — center col */
+  .header__heading,
+  .header__heading-link {
+    justify-self: center !important;
+    text-align: center !important;
+  }
+  .header__heading-link .h2,
+  .header__heading .h2 {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    letter-spacing: -0.02em !important;
+    white-space: nowrap !important;
+  }
+  .header__heading-logo {
+    max-height: 32px !important;
+    width: auto !important;
+  }
+
+  /* Icons — right col */
+  .header__icons {
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
+
+  /* Each icon button */
+  .header__icon {
+    padding: 8px !important;
+    border-radius: 8px !important;
+    color: #111827 !important;
+    transition: background 0.15s !important;
+  }
+  .header__icon:hover {
+    background: #f3f4f6 !important;
+  }
+  .header__icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: #111827 !important;
+    fill: none !important;
+  }
+
+  /* Cart icon — larger than the rest */
+  .header__icon--cart svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .header__icon--cart {
+    padding: 6px 8px !important;
+  }
+
+  /* Cart count bubble */
+  .cart-count-bubble {
+    background: #2563eb !important;
+    color: #fff !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 4px !important;
+    top: 2px !important;
+    right: 2px !important;
+  }
+}
+
+/* Mobile drawer — full-screen, clean */
+@media (max-width: 989px) {
+  .menu-drawer {
+    background: #fff !important;
+    border-right: none !important;
+    box-shadow: 4px 0 24px rgba(0,0,0,0.12) !important;
+    max-width: 320px !important;
+    width: 88vw !important;
+  }
+
+  .menu-drawer__inner-container {
+    padding: 0 !important;
+  }
+
+  /* Drawer header */
+  .menu-drawer__navigation-container {
+    padding: 16px !important;
+  }
+
+  /* Nav links in drawer */
+  .menu-drawer__menu .list-menu__item--link {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    transition: background 0.15s, color 0.15s !important;
+    text-decoration: none !important;
+  }
+  .menu-drawer__menu .list-menu__item--link:hover {
+    background: #f0f5ff !important;
+    color: #2563eb !important;
+  }
+
+  /* Sub-menu items */
+  .menu-drawer__menu .list-menu--disclosure .list-menu__item--link {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #6b7280 !important;
+    padding-left: 28px !important;
+  }
+  .menu-drawer__menu .list-menu--disclosure .list-menu__item--link:hover {
+    color: #2563eb !important;
+    background: #f0f5ff !important;
+  }
+
+  /* Disclosure arrow icon */
+  .menu-drawer__menu summary svg,
+  .menu-drawer__menu .list-menu__item--link svg {
+    color: #9ca3af !important;
+  }
+
+  /* Drawer close button */
+  .menu-drawer__close-button {
+    padding: 10px !important;
+    border-radius: 8px !important;
+    color: #111827 !important;
+  }
+  .menu-drawer__close-button:hover {
+    background: #f3f4f6 !important;
+  }
+
+  /* Utility links at bottom */
+  .menu-drawer__utility-links {
+    border-top: 1px solid #e5e7eb !important;
+    padding: 16px !important;
+  }
+  .menu-drawer__utility-links .list-menu__item--link {
+    font-size: 13px !important;
+    color: #6b7280 !important;
+  }
+}
+
+/* Sticky header — keep shadow */
+.shopify-section-header-sticky .header-wrapper {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
+</style>
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link

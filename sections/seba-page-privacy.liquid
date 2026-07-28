@@ -1,0 +1,242 @@
+<style>
+  .spv {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .spv__inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .spv__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .spv__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .spv__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .spv__header {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #f9fafb 0%, #eff6ff 100%);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .spv__eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--seba-accent, #2563eb);
+    color: #fff;
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .spv__header h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 8px; color: var(--seba-text, #111827);
+  }
+  .spv__header p {
+    font-size: 14px; margin: 0;
+    color: var(--seba-text-2, #374151); max-width: 720px; line-height: 1.6;
+  }
+  .spv__updated {
+    display: inline-block; margin-top: 12px;
+    padding: 4px 10px; background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 999px;
+    font-size: 12px; color: var(--seba-muted, #6b7280);
+  }
+
+  .spv__toc {
+    position: sticky; top: 24px;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .spv__toc-heading {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--seba-muted, #6b7280);
+    margin: 0 0 12px;
+  }
+  .spv__toc ol {
+    padding-left: 20px; margin: 0;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .spv__toc a {
+    font-size: 13px; text-decoration: none;
+    color: var(--seba-text-2, #374151);
+  }
+  .spv__toc a:hover { color: var(--seba-accent, #2563eb); }
+
+  .spv__body h2 {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 32px 0 10px; color: var(--seba-text, #111827);
+    scroll-margin-top: 24px;
+  }
+  .spv__body h2:first-child { margin-top: 0; }
+  .spv__body p {
+    font-size: 15px; line-height: 1.75; margin: 0 0 12px;
+    color: var(--seba-text-2, #374151);
+  }
+  .spv__body ul { padding-left: 22px; margin: 0 0 14px; }
+  .spv__body li { font-size: 15px; line-height: 1.75; color: var(--seba-text-2, #374151); margin-bottom: 6px; }
+  .spv__body strong { color: var(--seba-text, #111827); font-weight: 600; }
+
+  .spv__rights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0 24px;
+  }
+  .spv__right {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .spv__right strong {
+    display: block;
+    font-size: 13px; color: var(--seba-text, #111827);
+    margin-bottom: 4px;
+  }
+  .spv__right span {
+    font-size: 13px; color: var(--seba-muted, #6b7280); line-height: 1.5;
+  }
+
+  .spv__contact {
+    background: var(--seba-text, #111827);
+    color: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 32px;
+  }
+  .spv__contact h3 { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+  .spv__contact p { font-size: 14px; color: #9ca3af; margin: 0 0 8px; line-height: 1.6; }
+  .spv__contact a { color: #93c5fd; text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .spv__inner { grid-template-columns: 1fr; }
+    .spv__toc { position: static; }
+    .spv__header { padding: 24px; }
+    .spv__header h1 { font-size: 24px; }
+    .spv__rights { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="spv">
+  <div class="spv__inner">
+
+    <div class="spv__header">
+      <nav class="spv__crumbs" aria-label="Breadcrumb" style="margin-bottom:14px;">
+        <a href="/">Home</a> &rsaquo; <span>Privacy Policy</span>
+      </nav>
+      <span class="spv__eyebrow">Your Data, Your Rights</span>
+      <h1>Privacy Policy</h1>
+      <p>Seba Digital respects your privacy and is committed to protecting your personal data. This policy explains what information we collect when you use our website or place an order, how we use it, who we share it with, and what rights you have under UK GDPR.</p>
+      <span class="spv__updated">Last updated: {{ 'now' | date: '%B %Y' }}</span>
+    </div>
+
+    <aside class="spv__toc" aria-label="Table of contents">
+      <p class="spv__toc-heading">Contents</p>
+      <ol>
+        <li><a href="#p1">Who we are</a></li>
+        <li><a href="#p2">Data we collect</a></li>
+        <li><a href="#p3">How we use it</a></li>
+        <li><a href="#p4">Legal basis</a></li>
+        <li><a href="#p5">Cookies</a></li>
+        <li><a href="#p6">Sharing your data</a></li>
+        <li><a href="#p7">Data retention</a></li>
+        <li><a href="#p8">Your rights</a></li>
+        <li><a href="#p9">Security</a></li>
+        <li><a href="#p10">Contact &amp; complaints</a></li>
+      </ol>
+    </aside>
+
+    <div class="spv__body">
+
+      <h2 id="p1">1. Who we are</h2>
+      <p>For the purposes of the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, the data controller is <strong>Seba Digital</strong>, 42B Broadway, West Ealing, London&nbsp;W13&nbsp;0SU. You can contact us at <a href="mailto:sales@sebadigital.co.uk">sales@sebadigital.co.uk</a> or on 020 8567 8550.</p>
+
+      <h2 id="p2">2. What data we collect</h2>
+      <p>When you shop with us or contact us, we may collect and process the following personal information:</p>
+      <ul>
+        <li><strong>Identity &amp; contact:</strong> name, billing and delivery address, email address, phone number.</li>
+        <li><strong>Order data:</strong> the products you buy, order history, invoices and communications.</li>
+        <li><strong>Payment data:</strong> processed securely by PayPal — we don't store full card numbers on our servers.</li>
+        <li><strong>Technical data:</strong> IP address, browser type, device information, pages visited (via cookies and analytics).</li>
+        <li><strong>Marketing preferences:</strong> if you subscribe to our newsletter, we record your consent and preferences.</li>
+      </ul>
+
+      <h2 id="p3">3. How we use your data</h2>
+      <p>We use your personal data only for the purposes for which it was collected, including:</p>
+      <ul>
+        <li>Processing and delivering your orders</li>
+        <li>Responding to your enquiries and providing customer service</li>
+        <li>Sending order updates, dispatch notifications and delivery information</li>
+        <li>Sending marketing emails <em>only if you've opted in</em></li>
+        <li>Improving our website, product range and customer experience</li>
+        <li>Preventing fraud and complying with our legal obligations</li>
+      </ul>
+
+      <h2 id="p4">4. Legal basis for processing</h2>
+      <p>Under UK GDPR, we process your data under one of the following legal bases: <strong>contract</strong> (to fulfil your order), <strong>legal obligation</strong> (e.g. tax records), <strong>legitimate interests</strong> (improving our service and preventing fraud), or <strong>consent</strong> (for marketing communications, which you can withdraw at any time).</p>
+
+      <h2 id="p5">5. Cookies</h2>
+      <p>Our website uses cookies to make it work and to help us understand how visitors use it. Some are essential (shopping cart, checkout), others are analytics or marketing cookies which you can accept or decline via our cookie banner. You can also manage cookies through your browser settings.</p>
+
+      <h2 id="p6">6. Who we share your data with</h2>
+      <p>We only share your data where necessary to deliver our service, and only with trusted partners bound by their own data-protection obligations. These include:</p>
+      <ul>
+        <li><strong>Payment processors</strong> (PayPal) — to complete your transaction</li>
+        <li><strong>Delivery couriers</strong> (Royal Mail, DPD, Parcelforce) — to ship your order</li>
+        <li><strong>Email &amp; newsletter services</strong> — where you've opted in</li>
+        <li><strong>Analytics providers</strong> — for anonymised usage data</li>
+      </ul>
+      <p>We <strong>never sell</strong> your personal data to third parties.</p>
+
+      <h2 id="p7">7. How long we keep your data</h2>
+      <p>We keep order records for as long as required for tax, accounting and legal purposes (typically 6 years under UK law). Marketing preferences are held until you unsubscribe. You can request deletion of your account data at any time — see section 8.</p>
+
+      <h2 id="p8">8. Your rights under UK GDPR</h2>
+      <div class="spv__rights">
+        <div class="spv__right"><strong>Right of access</strong><span>Request a copy of the personal data we hold about you.</span></div>
+        <div class="spv__right"><strong>Right to rectification</strong><span>Ask us to correct any inaccurate or incomplete data.</span></div>
+        <div class="spv__right"><strong>Right to erasure</strong><span>Ask us to delete your data where legally possible.</span></div>
+        <div class="spv__right"><strong>Right to restrict processing</strong><span>Limit how we use your data in certain situations.</span></div>
+        <div class="spv__right"><strong>Right to data portability</strong><span>Receive your data in a structured, machine-readable format.</span></div>
+        <div class="spv__right"><strong>Right to object</strong><span>Object to marketing or processing based on legitimate interests.</span></div>
+      </div>
+      <p>To exercise any of these rights, email <a href="mailto:sales@sebadigital.co.uk">sales@sebadigital.co.uk</a>. We'll respond within 30 days.</p>
+
+      <h2 id="p9">9. Security</h2>
+      <p>We protect your data with <strong>industry-standard SSL encryption</strong> across our website and checkout. Payment information is processed directly by PayPal — we never see or store your full card details. Internally, access to personal data is restricted to staff who need it to perform their role.</p>
+
+      <h2 id="p10">10. Contact &amp; complaints</h2>
+      <p>If you have questions about this policy or how we handle your data, please contact us in the first instance:</p>
+      <div class="spv__contact">
+        <h3>Data Protection Enquiries</h3>
+        <p><strong style="color:#fff;">Email:</strong> <a href="mailto:sales@sebadigital.co.uk">sales@sebadigital.co.uk</a></p>
+        <p><strong style="color:#fff;">Phone:</strong> 020 8567 8550</p>
+        <p><strong style="color:#fff;">Post:</strong> Seba Digital, 42B Broadway, West Ealing, London W13 0SU</p>
+        <p style="margin-top:12px;">You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or on 0303 123 1113.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Privacy page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "Privacy page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

@@ -2,27 +2,23 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "footer": {
-      "type": "footer",
-      "blocks": {},
-      "block_order": [],
+    "seba-footer": {
+      "type": "seba-footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "tagline": "UK's trusted source for genuine electronics accessories. Panasonic, TDK, Kingston & more.",
+        "phone": "",
+        "email": "",
+        "address": "United Kingdom",
+        "col2_heading": "Categories",
+        "menu_categories": "footer-categories",
+        "col3_heading": "Customer Care",
+        "menu_info": "footer",
+        "opening_hours": "Mon–Fri: 9am – 5pm<br>Saturday: 10am – 3pm<br>Sunday: Closed",
+        "company_reg": ""
       }
     }
   },
   "order": [
-    "footer"
+    "seba-footer"
   ]
 }

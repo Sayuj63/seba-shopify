@@ -1,0 +1,254 @@
+<style>
+  .sd {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .sd__inner { max-width: 1080px; margin: 0 auto; }
+  .sd__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .sd__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .sd__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .sd__header {
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .sd__eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .sd__header h1 {
+    font-size: 34px; font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 10px; color: var(--seba-text, #111827);
+  }
+  .sd__header p {
+    font-size: 15px; line-height: 1.6; margin: 0;
+    color: var(--seba-text-2, #374151); max-width: 700px;
+  }
+
+  .sd__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .sd__card {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .sd__card-icon {
+    width: 38px; height: 38px; flex-shrink: 0;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800;
+  }
+  .sd__card h4 {
+    font-size: 14px; font-weight: 700; margin: 0 0 4px;
+    color: var(--seba-text, #111827);
+  }
+  .sd__card p {
+    font-size: 13px; line-height: 1.55; margin: 0;
+    color: var(--seba-muted, #6b7280);
+  }
+
+  .sd__table-wrap {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .sd__table-head {
+    padding: 16px 20px;
+    background: var(--seba-bg-soft, #f9fafb);
+    border-bottom: 1px solid var(--seba-border, #e5e7eb);
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--seba-text, #111827);
+  }
+  .sd__table { width: 100%; border-collapse: collapse; }
+  .sd__table th, .sd__table td {
+    padding: 14px 20px; text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--seba-border, #e5e7eb);
+  }
+  .sd__table th {
+    font-weight: 600; color: var(--seba-text-2, #374151);
+    background: #fff;
+  }
+  .sd__table td { color: var(--seba-text-2, #374151); }
+  .sd__table tr:last-child td { border-bottom: none; }
+  .sd__table td strong { color: var(--seba-text, #111827); font-weight: 600; }
+  .sd__badge {
+    display: inline-block; padding: 3px 9px;
+    background: #dcfce7; color: #166534;
+    border-radius: 999px; font-size: 11px; font-weight: 600;
+  }
+  .sd__badge--paid { background: var(--seba-accent-lt, #dbeafe); color: var(--seba-accent-hi, #1d4ed8); }
+
+  .sd__body h2 {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 36px 0 12px; color: var(--seba-text, #111827);
+  }
+  .sd__body p {
+    font-size: 15px; line-height: 1.7; margin: 0 0 12px;
+    color: var(--seba-text-2, #374151);
+  }
+  .sd__body ul {
+    padding-left: 20px; margin: 0 0 16px;
+    font-size: 15px; line-height: 1.7; color: var(--seba-text-2, #374151);
+  }
+  .sd__body strong { color: var(--seba-text, #111827); font-weight: 600; }
+
+  .sd__note {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #78350f;
+    line-height: 1.6;
+  }
+  .sd__note strong { color: #78350f; }
+
+  @media (max-width: 900px) {
+    .sd__cards { grid-template-columns: 1fr; }
+    .sd__header { padding: 28px 24px; }
+    .sd__header h1 { font-size: 26px; }
+    .sd__table th, .sd__table td { padding: 12px 14px; font-size: 13px; }
+  }
+</style>
+
+<section class="sd">
+  <div class="sd__inner">
+
+    <nav class="sd__crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo; <span>Delivery Information</span>
+    </nav>
+
+    <div class="sd__header">
+      <span class="sd__eyebrow">UK Mainland Shipping</span>
+      <h1>Fast, tracked delivery — straight to your door.</h1>
+      <p>Every order is packed and shipped from our workshop in West Ealing, London. Items under 5&nbsp;kg travel via Royal Mail Signed For or a tracked courier, so you'll know exactly where your parcel is at every step.</p>
+    </div>
+
+    <div class="sd__cards">
+      <div class="sd__card">
+        <div class="sd__card-icon">⏱</div>
+        <div>
+          <h4>1–2 working days to dispatch</h4>
+          <p>We start picking your order as soon as payment clears — usually the same or next working day.</p>
+        </div>
+      </div>
+      <div class="sd__card">
+        <div class="sd__card-icon">🇬🇧</div>
+        <div>
+          <h4>UK-wide delivery</h4>
+          <p>We ship anywhere in mainland UK. Please contact us before ordering for the Highlands, Islands, or BFPO.</p>
+        </div>
+      </div>
+      <div class="sd__card">
+        <div class="sd__card-icon">🔒</div>
+        <div>
+          <h4>Signed &amp; tracked</h4>
+          <p>Orders under 5&nbsp;kg ship recorded/signed-for; larger items go via a tracked courier.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sd__table-wrap">
+      <div class="sd__table-head">Shipping Options</div>
+      <table class="sd__table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Weight</th>
+            <th>Estimated delivery</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Royal Mail Signed For</strong></td>
+            <td>Up to 2&nbsp;kg</td>
+            <td>2–3 working days</td>
+            <td><span class="sd__badge">Calculated at checkout</span></td>
+          </tr>
+          <tr>
+            <td><strong>Royal Mail Tracked 48</strong></td>
+            <td>2–5&nbsp;kg</td>
+            <td>2–3 working days</td>
+            <td><span class="sd__badge">Calculated at checkout</span></td>
+          </tr>
+          <tr>
+            <td><strong>Courier (DPD / Parcelforce)</strong></td>
+            <td>Over 5&nbsp;kg</td>
+            <td>1–2 working days</td>
+            <td><span class="sd__badge sd__badge--paid">Calculated at checkout</span></td>
+          </tr>
+          <tr>
+            <td><strong>Local collection</strong></td>
+            <td>Any</td>
+            <td>Ready when notified</td>
+            <td><span class="sd__badge">Free</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sd__body">
+      <h2>When we dispatch</h2>
+      <p>Orders placed before <strong>2pm on a working day</strong> are picked and packed the same day, provided funds have cleared. Weekend and bank holiday orders are processed on the next working day. You'll receive a dispatch email with your tracking number as soon as your parcel leaves us.</p>
+
+      <h2>Delivery timings</h2>
+      <p>Standard estimates are 2–3 working days for Royal Mail and 1–2 working days for courier. Delivery windows can vary during peak periods (Christmas, Black Friday, bank holidays) — we'll always keep you informed if we spot a delay.</p>
+
+      <h2>Areas we cover</h2>
+      <ul>
+        <li><strong>UK Mainland</strong> — standard rates apply.</li>
+        <li><strong>Scottish Highlands, Northern Ireland, Isle of Man, Channel Islands</strong> — please contact us before ordering; a supplementary charge may apply.</li>
+        <li><strong>International</strong> — we currently ship within the United Kingdom only.</li>
+      </ul>
+
+      <div class="sd__note">
+        <strong>Received a damaged parcel?</strong> Please refuse delivery where possible, or note "damaged" when signing. Then contact us within 48 hours of delivery on <a href="tel:02085678550" style="color:#78350f;text-decoration:underline;">020 8567 8550</a> or <a href="mailto:sales@sebadigital.co.uk" style="color:#78350f;text-decoration:underline;">sales@sebadigital.co.uk</a> and we'll sort it right away.
+      </div>
+
+      <h2>Collect from our shop</h2>
+      <p>Prefer to pick up your order? Choose <strong>Local collection</strong> at checkout and we'll drop you an email when it's ready. Collect Monday to Saturday during store hours from:</p>
+      <p style="background:var(--seba-bg-soft,#f9fafb);border-radius:10px;padding:14px 18px;">
+        <strong>Seba Digital</strong><br>
+        42B Broadway, West Ealing, London&nbsp;W13&nbsp;0SU
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Delivery page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "Delivery page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

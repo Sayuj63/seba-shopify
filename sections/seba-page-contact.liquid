@@ -1,0 +1,383 @@
+<style>
+  .sc {
+    background: var(--seba-bg, #ffffff);
+    color: var(--seba-text, #111827);
+    padding: 48px 24px 64px;
+  }
+  .sc__inner { max-width: 1180px; margin: 0 auto; }
+  .sc__crumbs { font-size: 13px; color: var(--seba-muted, #6b7280); margin-bottom: 18px; }
+  .sc__crumbs a { color: var(--seba-muted, #6b7280); text-decoration: none; }
+  .sc__crumbs a:hover { color: var(--seba-accent, #2563eb); }
+
+  .sc__hero {
+    background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px 40px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sc__hero::before {
+    content: ''; position: absolute; top: -50px; right: -50px;
+    width: 220px; height: 220px;
+    background: rgba(37,99,235,0.25);
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  .sc__eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 6px 12px; border-radius: 999px;
+    margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+  .sc__hero h1 {
+    font-size: 38px; font-weight: 800; letter-spacing: -0.02em;
+    margin: 0 0 10px; color: #fff;
+    position: relative; z-index: 1;
+  }
+  .sc__hero p {
+    font-size: 16px; line-height: 1.6; margin: 0; max-width: 620px;
+    color: rgba(255,255,255,0.85);
+    position: relative; z-index: 1;
+  }
+
+  .sc__grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+  }
+
+  .sc__methods { display: flex; flex-direction: column; gap: 14px; }
+  .sc__method {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .sc__method:hover {
+    border-color: var(--seba-accent, #2563eb);
+    box-shadow: 0 4px 14px rgba(37,99,235,0.10);
+  }
+  .sc__method-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: var(--seba-accent-lt, #dbeafe);
+    color: var(--seba-accent, #2563eb);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sc__method-icon svg { width: 20px; height: 20px; }
+  .sc__method-body h4 {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--seba-muted, #6b7280);
+    margin: 0 0 6px;
+  }
+  .sc__method-body p {
+    font-size: 16px; font-weight: 600; margin: 0 0 4px;
+    color: var(--seba-text, #111827);
+  }
+  .sc__method-body span {
+    font-size: 13px; color: var(--seba-muted, #6b7280);
+  }
+
+  .sc__hours {
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 6px;
+  }
+  .sc__hours-heading {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--seba-muted, #6b7280);
+    margin: 0 0 12px;
+  }
+  .sc__hours-list { list-style: none; padding: 0; margin: 0; }
+  .sc__hours-list li {
+    display: flex; justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--seba-border, #e5e7eb);
+    color: var(--seba-text-2, #374151);
+  }
+  .sc__hours-list li:last-child { border-bottom: none; }
+  .sc__hours-list strong { font-weight: 600; color: var(--seba-text, #111827); }
+
+  .sc__form-card {
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .sc__form-heading {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 0 0 8px; color: var(--seba-text, #111827);
+  }
+  .sc__form-sub {
+    font-size: 14px; color: var(--seba-muted, #6b7280);
+    margin: 0 0 20px; line-height: 1.6;
+  }
+
+  .sc__form { display: grid; gap: 14px; }
+  .sc__form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sc__field label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: var(--seba-text, #111827);
+    margin-bottom: 6px;
+  }
+  .sc__field input, .sc__field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--seba-text, #111827);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    box-sizing: border-box;
+  }
+  .sc__field input:focus, .sc__field textarea:focus {
+    border-color: var(--seba-accent, #2563eb);
+    background: #fff;
+  }
+  .sc__field textarea { resize: vertical; min-height: 120px; }
+  .sc__submit {
+    background: var(--seba-accent, #2563eb);
+    color: #fff;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .sc__submit:hover { background: var(--seba-accent-hi, #1d4ed8); }
+  .sc__success {
+    background: #ecfdf5;
+    border: 1px solid #6ee7b7;
+    color: #065f46;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .sc__error {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .sc__error ul { margin: 6px 0 0; padding-left: 20px; }
+
+  .sc__map-card {
+    grid-column: 1 / -1;
+    background: #fff;
+    border: 1px solid var(--seba-border, #e5e7eb);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 28px;
+    align-items: center;
+  }
+  .sc__map-info h3 {
+    font-size: 20px; font-weight: 800; letter-spacing: -0.01em;
+    margin: 0 0 10px; color: var(--seba-text, #111827);
+  }
+  .sc__map-info p {
+    font-size: 14px; line-height: 1.65; margin: 0 0 12px;
+    color: var(--seba-text-2, #374151);
+  }
+  .sc__map-frame {
+    border-radius: 12px; overflow: hidden;
+    height: 280px; width: 100%;
+    background: var(--seba-bg-soft, #f9fafb);
+    border: 1px solid var(--seba-border, #e5e7eb);
+  }
+  .sc__map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+  @media (max-width: 900px) {
+    .sc__hero { padding: 32px 24px; }
+    .sc__hero h1 { font-size: 28px; }
+    .sc__grid { grid-template-columns: 1fr; }
+    .sc__form-row { grid-template-columns: 1fr; }
+    .sc__map-card { grid-template-columns: 1fr; padding: 22px; }
+    .sc__map-frame { height: 220px; }
+  }
+</style>
+
+<section class="sc">
+  <div class="sc__inner">
+
+    <nav class="sc__crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a> &rsaquo; <span>Contact Us</span>
+    </nav>
+
+    <div class="sc__hero">
+      <span class="sc__eyebrow">We're here to help</span>
+      <h1>Get in touch with Seba Digital.</h1>
+      <p>Call us, drop us an email, pop into the shop in West Ealing, or use the form below. A real person will get back to you — usually within one working day.</p>
+    </div>
+
+    <div class="sc__grid">
+
+      <div>
+        <div class="sc__methods">
+          <a class="sc__method" href="tel:02085678550">
+            <div class="sc__method-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="sc__method-body">
+              <h4>Store phone</h4>
+              <p>020 8567 8550</p>
+              <span>Charged at standard UK national rates</span>
+            </div>
+          </a>
+
+          <a class="sc__method" href="tel:07404944044">
+            <div class="sc__method-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            </div>
+            <div class="sc__method-body">
+              <h4>Installation &amp; transfer service</h4>
+              <p>07404 944044</p>
+              <span>TV wall-mounting, home cinema setup, VHS→DVD</span>
+            </div>
+          </a>
+
+          <a class="sc__method" href="mailto:sales@sebadigital.co.uk">
+            <div class="sc__method-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="sc__method-body">
+              <h4>Email</h4>
+              <p>sales@sebadigital.co.uk</p>
+              <span>We reply within one working day</span>
+            </div>
+          </a>
+
+          <div class="sc__method" style="cursor:default;">
+            <div class="sc__method-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="sc__method-body">
+              <h4>Visit our shop</h4>
+              <p>42B Broadway, West Ealing</p>
+              <span>London W13 0SU</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc__hours">
+          <p class="sc__hours-heading">Store hours</p>
+          <ul class="sc__hours-list">
+            <li><strong>Monday – Friday</strong><span>9:00 – 17:30</span></li>
+            <li><strong>Saturday</strong><span>10:00 – 17:00</span></li>
+            <li><strong>Sunday</strong><span>Closed</span></li>
+          </ul>
+          <p style="font-size:12px;color:var(--seba-muted,#6b7280);margin:12px 0 0;line-height:1.5;">
+            If we can't get to the phone, please leave a message and we'll call you back.
+          </p>
+        </div>
+      </div>
+
+      <div class="sc__form-card">
+        <h2 class="sc__form-heading">Send us a message</h2>
+        <p class="sc__form-sub">Sales question, order enquiry, installation booking, or something else — send it over and we'll come straight back to you.</p>
+
+        {%- form 'contact', id: 'seba-contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="sc__success">Thanks — your message has been sent. We'll be in touch shortly.</div>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <div class="sc__error">
+              <strong>Please fix the following:</strong>
+              <ul>
+                {%- for field in form.errors -%}
+                  <li>{{ form.errors.messages[field] }}</li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <div class="sc__form">
+            <div class="sc__form-row">
+              <div class="sc__field">
+                <label for="ContactName">Name</label>
+                <input type="text" id="ContactName" name="contact[name]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+              </div>
+              <div class="sc__field">
+                <label for="ContactPhone">Phone (optional)</label>
+                <input type="tel" id="ContactPhone" name="contact[phone]" value="{% if form.phone %}{{ form.phone }}{% endif %}" pattern="[0-9\-\+\s\(\)]*">
+              </div>
+            </div>
+
+            <div class="sc__field">
+              <label for="ContactEmail">Email</label>
+              <input type="email" id="ContactEmail" name="contact[email]" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required>
+            </div>
+
+            <div class="sc__field">
+              <label for="ContactSubject">Subject</label>
+              <input type="text" id="ContactSubject" name="contact[subject]" value="{% if form.subject %}{{ form.subject }}{% endif %}">
+            </div>
+
+            <div class="sc__field">
+              <label for="ContactBody">Message</label>
+              <textarea id="ContactBody" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+            </div>
+
+            <button type="submit" class="sc__submit">Send message</button>
+          </div>
+        {%- endform -%}
+      </div>
+
+      <div class="sc__map-card">
+        <div class="sc__map-info">
+          <h3>Find the shop</h3>
+          <p><strong>Seba Digital</strong><br>42B Broadway<br>West Ealing<br>London W13 0SU</p>
+          <p style="font-size:13px;color:var(--seba-muted,#6b7280);">Nearest stations: West Ealing (rail) &middot; Ealing Broadway (Central, District, Elizabeth line).</p>
+        </div>
+        <div class="sc__map-frame">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.3232%2C51.5099%2C-0.3072%2C51.5169&amp;layer=mapnik&amp;marker=51.51340%2C-0.31520"
+            title="Seba Digital location map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact page",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    { "name": "Contact page" }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}

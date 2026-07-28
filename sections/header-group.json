@@ -2,31 +2,16 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
+    "seba-announcement": {
+      "type": "seba-announcement-bar",
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      },
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ]
+        "message_1": "🚚 Free UK Delivery on orders over £30",
+        "message_2": "✅ Genuine Panasonic, TDK, Kingston, Maxell & more",
+        "message_3": "🕐 Orders before 2pm ship same day",
+        "message_4": "💳 Secure checkout — SSL encrypted",
+        "color_scheme": "blue",
+        "animation_speed": 30
+      }
     },
     "header": {
       "type": "header",
@@ -35,21 +20,21 @@
         "menu_color_scheme": "scheme-1",
         "logo_position": "middle-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "show_line_separator": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "enable_customer_avatar": true,
-        "mobile_logo_position": "center",
+        "mobile_logo_position": "left",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     }
   },
   "order": [
-    "announcement-bar",
+    "seba-announcement",
     "header"
   ]
 }
