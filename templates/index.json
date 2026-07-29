@@ -1,12 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "seba_hero": {
       "type": "seba-hero",
       "settings": {
+        "badge_text": "UK's Trusted Electronics Store",
         "heading": "Premium Tech Accessories for Less",
         "subheading": "Genuine Panasonic, TDK, Kingston & more. Over 200+ products, fast UK dispatch.",
         "cta_label": "Shop All Products",
+        "cta_link": "",
         "secondary_cta_label": "DVD & Media",
+        "secondary_cta_link": "",
         "stat_1_value": "200+",
         "stat_1_label": "Products",
         "stat_2_value": "11",
@@ -21,7 +33,7 @@
       "type": "seba-trust-bar",
       "settings": {
         "trust_1_title": "Free UK Delivery",
-        "trust_1_sub": "On orders over £30",
+        "trust_1_sub": "on all orders mainland UK",
         "trust_2_title": "Genuine Products",
         "trust_2_sub": "100% authentic brands",
         "trust_3_title": "30-Day Returns",
@@ -32,70 +44,59 @@
     },
     "seba_cats": {
       "type": "seba-category-grid",
-      "settings": {
-        "heading": "Shop by Category",
-        "subheading": "11 categories covering everything you need",
-        "show_view_all": true
-      },
       "blocks": {
         "cat_tv": {
           "type": "category",
           "settings": {
+            "emoji_icon": "📺",
             "heading": "TV Accessories",
             "link": "/collections/tv-accessories",
-            "emoji_icon": "📺",
-            "description": "Remote controls, TV cables, wall mounts & batteries for your home cinema setup.",
-            "bg_gradient": "blue"
+            "collection_handle": "tv-accessories"
           }
         },
         "cat_headphones": {
           "type": "category",
           "settings": {
+            "emoji_icon": "🎧",
             "heading": "Headphones",
             "link": "/collections/headphones",
-            "emoji_icon": "🎧",
-            "description": "",
-            "bg_gradient": "indigo"
+            "collection_handle": "tv-accessories"
           }
         },
         "cat_storage": {
           "type": "category",
           "settings": {
+            "emoji_icon": "💾",
             "heading": "Storage Devices",
             "link": "/collections/storage-devices",
-            "emoji_icon": "💾",
-            "description": "",
-            "bg_gradient": "cyan"
+            "collection_handle": "tv-accessories"
           }
         },
         "cat_phone": {
           "type": "category",
           "settings": {
+            "emoji_icon": "📱",
             "heading": "Phone Accessories",
             "link": "/collections/phone-accessories",
-            "emoji_icon": "📱",
-            "description": "",
-            "bg_gradient": "teal"
+            "collection_handle": "tv-accessories"
           }
         },
         "cat_dvd": {
           "type": "category",
           "settings": {
+            "emoji_icon": "💿",
             "heading": "DVD & Blu-ray Media",
             "link": "/collections/dvd-media",
-            "emoji_icon": "💿",
-            "description": "",
-            "bg_gradient": "violet"
+            "collection_handle": "tv-accessories"
           }
         },
         "cat_entertainment": {
           "type": "category",
           "settings": {
+            "emoji_icon": "🔊",
             "heading": "Home Entertainment",
             "link": "/collections/home-entertainment",
-            "emoji_icon": "🔊",
-            "description": "",
-            "bg_gradient": "sky"
+            "collection_handle": "tv-accessories"
           }
         }
       },
@@ -106,13 +107,17 @@
         "cat_phone",
         "cat_dvd",
         "cat_entertainment"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Browse by Category",
+        "heading": "Shop by Category"
+      }
     },
     "seba_featured": {
       "type": "seba-featured-collection",
       "settings": {
+        "eyebrow": "Handpicked",
         "heading": "Featured Products",
-        "subheading": "Hand-picked from our bestselling lines",
         "collection": "all",
         "products_to_show": 8,
         "show_vendor": true
@@ -120,21 +125,84 @@
     },
     "seba_brands": {
       "type": "seba-brand-strip",
-      "settings": {
-        "label": "Trusted Brands We Stock"
-      },
       "blocks": {
-        "brand_panasonic": { "type": "brand", "settings": { "brand_name": "Panasonic", "brand_link": "/collections/panasonic" } },
-        "brand_tdk":       { "type": "brand", "settings": { "brand_name": "TDK",       "brand_link": "/collections/tdk" } },
-        "brand_kingston":  { "type": "brand", "settings": { "brand_name": "Kingston",  "brand_link": "/collections/kingston" } },
-        "brand_maxell":    { "type": "brand", "settings": { "brand_name": "Maxell",    "brand_link": "/collections/maxell" } },
-        "brand_verbatim":  { "type": "brand", "settings": { "brand_name": "Verbatim",  "brand_link": "/collections/verbatim" } },
-        "brand_jvc":       { "type": "brand", "settings": { "brand_name": "JVC",       "brand_link": "/collections/jvc" } },
-        "brand_groove":    { "type": "brand", "settings": { "brand_name": "Groov-e",   "brand_link": "/collections/groov-e" } },
-        "brand_memorex":   { "type": "brand", "settings": { "brand_name": "Memorex",   "brand_link": "/collections/memorex" } },
-        "brand_philips":   { "type": "brand", "settings": { "brand_name": "Philips",    "brand_link": "/collections/philips" } },
-        "brand_nedis":     { "type": "brand", "settings": { "brand_name": "Nedis",      "brand_link": "/collections/nedis" } },
-        "brand_sony":      { "type": "brand", "settings": { "brand_name": "Sony",       "brand_link": "/collections/sony" } }
+        "brand_panasonic": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Panasonic",
+            "brand_link": "/collections/panasonic"
+          }
+        },
+        "brand_tdk": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "TDK",
+            "brand_link": "/collections/tdk"
+          }
+        },
+        "brand_kingston": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Kingston",
+            "brand_link": "/collections/kingston"
+          }
+        },
+        "brand_maxell": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Maxell",
+            "brand_link": "/collections/maxell"
+          }
+        },
+        "brand_verbatim": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Verbatim",
+            "brand_link": "/collections/verbatim"
+          }
+        },
+        "brand_jvc": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "JVC",
+            "brand_link": "/collections/jvc"
+          }
+        },
+        "brand_groove": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Groov-e",
+            "brand_link": "/collections/groov-e"
+          }
+        },
+        "brand_memorex": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Memorex",
+            "brand_link": "/collections/memorex"
+          }
+        },
+        "brand_philips": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Philips",
+            "brand_link": "/collections/philips"
+          }
+        },
+        "brand_nedis": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Nedis",
+            "brand_link": "/collections/nedis"
+          }
+        },
+        "brand_sony": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Sony",
+            "brand_link": "/collections/sony"
+          }
+        }
       },
       "block_order": [
         "brand_panasonic",
@@ -148,7 +216,10 @@
         "brand_philips",
         "brand_nedis",
         "brand_sony"
-      ]
+      ],
+      "settings": {
+        "label": "Trusted Brands We Stock"
+      }
     },
     "seba_promo": {
       "type": "seba-promo-banners",
@@ -156,6 +227,7 @@
         "promo_1": {
           "type": "banner",
           "settings": {
+            "icon": "💿",
             "label": "Great Value Packs",
             "heading": "DVD & Blu-ray Media",
             "subtext": "TDK, Verbatim & Panasonic. Bulk packs available.",
@@ -167,6 +239,7 @@
         "promo_2": {
           "type": "banner",
           "settings": {
+            "icon": "💿",
             "label": "Premium Audio",
             "heading": "Headphones & Earphones",
             "subtext": "Groov-e wireless, noise-cancelling & gaming headsets.",
@@ -176,17 +249,75 @@
           }
         }
       },
-      "block_order": ["promo_1", "promo_2"]
+      "block_order": [
+        "promo_1",
+        "promo_2"
+      ],
+      "settings": {}
+    },
+    "seba_tv_install": {
+      "type": "seba-tv-installation",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "tv",
+            "heading": "TV Installation & Wall Mounting",
+            "text": "High-quality workmanship ensuring your TV is securely and professionally mounted for the perfect viewing experience."
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "map",
+            "heading": "Local Service — 7-Mile Radius",
+            "text": "Fast, friendly and dependable service covering all areas within a 7-mile radius."
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "heading": "Expert Advice",
+            "text": "Whether you need a TV installed, wall mounted or your home entertainment system set up — we're here to help."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "settings": {
+        "eyebrow": "Local Service",
+        "title": "Your Local TV Installation Specialists",
+        "coverage_text": "Covering all areas within a 7-mile radius",
+        "description": "With many years of experience, we proudly provide professional TV installation services to our local community. We offer expert advice, reliable service and great value on TV wall mounting, installation and accessories.",
+        "badge_text": "Professional Installation",
+        "cta_label": "Get a Free Quote",
+        "cta_link": "",
+        "phone": "07404 944044"
+      }
+    },
+    "seba_vhs_dvd": {
+      "type": "seba-vhs-to-dvd",
+      "settings": {
+        "eyebrow": "Media Transfer Service",
+        "title": "Convert & Transfer VHS to DVD",
+        "trust_text": "Trusted for Over 30 Years",
+        "description": "Bring your treasured memories back to life with our professional media transfer service. With over 30 years of experience, we specialise in converting old video tapes into high-quality DVDs — helping you preserve precious family memories for generations to come.",
+        "price": "£6",
+        "price_label": "Per tape — all formats accepted",
+        "price_sub": "Free quote — no obligation",
+        "formats": "VHS,VHS-C,Video8,Hi8,Digital8,MiniDV,Mini DVD",
+        "checklist": "Fast turnaround,High-quality transfers,Affordable prices,30+ years experience,Free quote,Trusted service",
+        "cta_label": "Book a Transfer",
+        "cta_link": "",
+        "phone": "07404 944044"
+      }
     },
     "seba_reviews": {
       "type": "seba-reviews",
-      "settings": {
-        "heading": "What Our Customers Say",
-        "subheading": "Thousands of happy customers across the UK",
-        "show_overall_rating": true,
-        "overall_rating": "4.9",
-        "review_count": "Based on 2,400+ reviews"
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -213,7 +344,18 @@
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3"]
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "heading": "What Our Customers Say",
+        "subheading": "Thousands of happy customers across the UK",
+        "show_overall_rating": true,
+        "overall_rating": "4.9",
+        "review_count": "Based on 2,400+ reviews"
+      }
     },
     "seba_cta": {
       "type": "seba-cta-banner",
@@ -224,40 +366,6 @@
         "primary_cta_link": "/collections/all",
         "secondary_cta_label": "Contact Us",
         "secondary_cta_link": "/pages/contact"
-      }
-    },
-    "seba_tv_install": {
-      "type": "seba-tv-installation",
-      "settings": {
-        "eyebrow": "Local Service",
-        "title": "Your Local TV Installation Specialists",
-        "coverage_text": "Covering all areas within a 7-mile radius",
-        "description": "With many years of experience, we proudly provide professional TV installation services to our local community. We offer expert advice, reliable service and great value on TV wall mounting, installation and accessories.",
-        "badge_text": "Professional Installation",
-        "cta_label": "Get a Free Quote",
-        "phone": "07404 944044"
-      },
-      "blocks": {
-        "f1": { "type": "feature", "settings": { "icon": "tv",   "heading": "TV Installation & Wall Mounting", "text": "High-quality workmanship ensuring your TV is securely and professionally mounted for the perfect viewing experience." } },
-        "f2": { "type": "feature", "settings": { "icon": "map",  "heading": "Local Service — 7-Mile Radius",   "text": "Fast, friendly and dependable service covering all areas within a 7-mile radius." } },
-        "f3": { "type": "feature", "settings": { "icon": "star", "heading": "Expert Advice",                   "text": "Whether you need a TV installed, wall mounted or your home entertainment system set up — we're here to help." } }
-      },
-      "block_order": ["f1", "f2", "f3"]
-    },
-    "seba_vhs_dvd": {
-      "type": "seba-vhs-to-dvd",
-      "settings": {
-        "eyebrow": "Media Transfer Service",
-        "title": "Convert & Transfer VHS to DVD",
-        "trust_text": "Trusted for Over 30 Years",
-        "description": "Bring your treasured memories back to life with our professional media transfer service. With over 30 years of experience, we specialise in converting old video tapes into high-quality DVDs — helping you preserve precious family memories for generations to come.",
-        "price": "£6",
-        "price_label": "Per tape — all formats accepted",
-        "price_sub": "Free quote — no obligation",
-        "formats": "VHS,VHS-C,Video8,Hi8,Digital8,MiniDV,Mini DVD",
-        "checklist": "Fast turnaround,High-quality transfers,Affordable prices,30+ years experience,Free quote,Trusted service",
-        "cta_label": "Book a Transfer",
-        "phone": "07404 944044"
       }
     }
   },
