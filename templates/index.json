@@ -302,6 +302,7 @@
     "seba_vhs_dvd": {
       "type": "seba-vhs-to-dvd",
       "settings": {
+        "image": "shopify://shop_images/seba-digital-logo-convert-transfer-vhs-vhs-c-video8-hi8-digital8-minidv-mini-dvd-to-dvd-copy.png",
         "eyebrow": "Media Transfer Service",
         "title": "Convert & Transfer VHS to DVD",
         "trust_text": "Trusted for Over 30 Years",
