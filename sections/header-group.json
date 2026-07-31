@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -5,9 +14,9 @@
     "seba-announcement": {
       "type": "seba-announcement-bar",
       "settings": {
-        "message_1": "🚚 Free UK Delivery on orders over £30",
-        "message_2": "✅ Genuine Panasonic, TDK, Kingston, Maxell & more",
-        "message_3": "🕐 Orders before 2pm ship same day",
+        "message_1": "🚚 Free UK Delivery on orders mainland UK",
+        "message_2": "✅ Genuine Panasonic, Sony, Philips,Verbatim,TDK, Kingston, Maxell & more",
+        "message_3": "🕐 Orders before 2pm ship same day and get Next Day Delivery",
         "message_4": "💳 Secure checkout — SSL encrypted",
         "color_scheme": "blue",
         "animation_speed": 30
@@ -16,17 +25,17 @@
     "header": {
       "type": "header",
       "settings": {
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
         "logo_position": "middle-left",
+        "mobile_logo_position": "left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_customer_avatar": true,
-        "mobile_logo_position": "left",
         "margin_bottom": 0,
         "padding_top": 12,
         "padding_bottom": 12
