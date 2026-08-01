@@ -113,7 +113,7 @@
     "social_instagram_link": "https://www.instagram.com/seba.digital.ltd",
     "social_youtube_link": "",
     "social_tiktok_link": "",
-    "social_twitter_link": "",
+    "social_twitter_link": "https://www.linkedin.com/company/seba-digital-limited",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
     "social_tumblr_link": "",
@@ -200,6 +200,17 @@
           "button_label": "#1e40af",
           "secondary_button_label": "#ffffff",
           "shadow": "#1d4ed8"
+        }
+      },
+      "scheme-989f6540-ef1b-4ec7-af8e-c3953cfa6cda": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#111827",
+          "button": "#2563eb",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#111827",
+          "shadow": "#e5e7eb"
         }
       }
     }
