@@ -351,7 +351,7 @@
         {%- if section.settings.company_reg != blank -%}&nbsp;·&nbsp; Reg: {{ section.settings.company_reg }}{%- endif -%}
       </span>
       <div class="sf__payments">
-        {%- assign payment_pills = "VISA,MC,AMEX,PayPal" | split: ',' -%}
+        {%- assign payment_pills = "Apple Pay,Google Pay, Klarna,VISA,Shop,AMEX,PayPal" | split: ',' -%}
         {%- for pill in payment_pills -%}
           <span class="sf__payment-pill">{{ pill }}</span>
         {%- endfor -%}
